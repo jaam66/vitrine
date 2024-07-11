@@ -1,18 +1,21 @@
-<h1>EDITAR {{ $support->id }}</h1>
+@extends('admin.layouts.app')
 
-<a href="{{ route('suporte.index') }}">Voltar</a>
+@section('title', 'Suporte')
+
+@section('header')
+<h1>EDITAR Registro: {{ $support->id }}</h1>
+@endsection
+@section('content')
+{{-- ------------------------------------------------------------------------------------- --}}
 <br><br>
-@if ($errors->any())
-    @foreach ($errors->all() as $error)
-        {{ $error }}
-    @endforeach
-@endif
+<a href="{{ route('suporte.index') }}">Voltar</a>
+<x-alert/>
 <br>
-<form action="{{ route('suporte.update', $support->id) }}" method="POST">
-    <!-- <input type="text" value="{{ csrf_token() }}" name="_token"> -->
-    @csrf
-    @method('PUT')
-    <input type="text" placeholder="Assunto" name="subject" value="{{ $support->subject }}">
-    <textarea name="body" cols="30" rows="5" placeholder="Descrição">{{ $support->body }}</textarea>
-    <button type="submit">Enviar</button>
-</form>
+    <form action="{{ route('suporte.update', $support->id) }}" method="POST">
+        <!-- <input type="text" value="{{ csrf_token() }}" name="_token"> -->
+        @method('PUT')
+        @include('admin.supports.partials.form',[
+            'support' => $support
+        ])
+    </form>
+@endsection

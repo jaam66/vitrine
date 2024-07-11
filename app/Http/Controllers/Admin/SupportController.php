@@ -12,8 +12,10 @@ class SupportController extends Controller
     public function index(Support $support)
     {
         $supports = $support->all();
+        $supports = Support::paginate(4);
         
         return view('admin/supports/index', compact('supports'));
+    
     }
 
     // função 'SHOW' mostra os dados
@@ -28,8 +30,6 @@ class SupportController extends Controller
             return back();
         }
 
-        // $teste = "Carioca";
-
         // return view('admin/supports/show', compact('support', 'teste'));
         return view('admin/supports/show', compact('support'));
     }
@@ -42,7 +42,7 @@ class SupportController extends Controller
     // função 'STORE' salva os dados no BD
     public function store(StoreUpdateSupport $request, Support $support)
     {
-        $data = $request->validate();
+        $data = $request->validated();
         $data['status'] = 'a';
   
         $support->create($data);
@@ -69,7 +69,7 @@ class SupportController extends Controller
         // $support->subject = $request->subject;
         // $support->body = $request->body;
         // $support->save();
-        $support->update($request->validate());
+        $support->update($request->validated());
         
         return redirect()->route('suporte.index');
     }

@@ -1,10 +1,16 @@
 <?php
 
+use App\Enums\SupportStatus;
 use App\Http\Controllers\Admin\{SupportController};
 use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Route;
 
 // SUPORTE
+// -----------------------------------------------------------------------------------------
+Route::get('/test', function () {
+    // dd(SupportStatus::cases());
+    dd(array_column(SupportStatus::cases(), 'name'));
+});
 // -----------------------------------------------------------------------------------------
 Route::get('/suporte/create', [SupportController::class, 'create'])->name('suporte.create');
 
@@ -27,4 +33,7 @@ Route::get('/contato', [SiteController::class, 'contact']);
 Route::get('/', function () {
     return view('welcome');
 });
-
+// -----------------------------------------------------------------------------------------
+Route::get('/listagem', function () {
+    return view('listagem');
+});
