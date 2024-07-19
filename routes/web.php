@@ -34,6 +34,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 // -----------------------------------------------------------------------------------------
-Route::get('/listagem', function () {
-    return view('listagem');
-});
+

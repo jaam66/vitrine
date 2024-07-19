@@ -1,6 +1,10 @@
 {
+  "public/images/fundo_rodape.jpg": {
+    "file": "assets/fundo_rodape-74e0f4e6.jpg",
+    "src": "public/images/fundo_rodape.jpg"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-29b573b1.css",
+    "file": "assets/app-d179dc1e.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },

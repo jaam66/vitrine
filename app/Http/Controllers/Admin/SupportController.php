@@ -6,16 +6,44 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateSupport;
 use App\Models\Support;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
+use function Laravel\Prompts\select;
+
+//  -> chama os métodos"
 class SupportController extends Controller
 {
-    public function index(Support $support)
+    public function index(Request $request)
     {
-        $supports = $support->all();
-        $supports = Support::paginate(4);
-        
+        $filter = $request->get('filter', '');
+        if($filter){
+            // --------------------------------------------------------------
+            // dd($filter);
+            // $supports = Support::where('subject', 'like', "%{$filter}%")
+            //                 ->orWhere('body', 'like', "%{$filter}%");
+            // --------------------------------------------------------------
+            $supports = DB::table('laravel.supports')
+                            ->select('u.name', 'supports.*')
+                            ->join('laravel.users AS u', 'supports.user_id', '=', 'u.id')
+                            ->where('subject', 'like', "%{$filter}%")
+                            ->orWhere('body', 'like', "%{$filter}%")
+                            ->orWhere('u.name', 'like', "%{$filter}%")
+                            ->orderBy('id','desc');
+        }
+        else{
+            $supports = DB::table('laravel.supports')
+                            ->select('u.name', 'supports.*')
+                            ->join('laravel.users AS u', 'supports.user_id', '=', 'u.id')
+                            ->orderBy('id','desc');
+            // --------------------------------------------------------------
+            // dd($supports);
+            // --------------------------------------------------------------
+        }
+        $supports = $supports->paginate(4);
+        // ------------------------------------------------------------------
+        // dd($supports);
+        // ------------------------------------------------------------------
         return view('admin/supports/index', compact('supports'));
-    
     }
 
     // função 'SHOW' mostra os dados

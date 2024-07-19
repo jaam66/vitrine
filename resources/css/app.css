@@ -1,27 +1,108 @@
-body{
-    background-color: bisque;
+
+.form_topo{
+    background-image: linear-gradient(#e8f7ec, #a8e1b6);
 }
 
-/* .topo{
-    background-color: #006b18;
-    display: flex;
-    text-align: left;
-}
-
-.barra_titulo{
-    background-color: #427f4d;
-    display: flex;
-    text-align: left;
-    padding: 5px;
-}
-
-.voltar{
-	width:100px;
-	height:30px;
-	background-color:#69db7e;
-	border-radius: 15px;
-    padding: 4px;
+.topo{
+    background-color: #006400;
+    padding: 10px;
     text-align: center;
-    margin: 0 auto;
-} */
+}
 
+.logo{
+    width: 80%;
+    padding: 10px;
+    text-align: center;
+    margin: auto;
+}
+.descricao_sistema{
+	color: #FFFFFF;
+	font-size: 25px;
+	font-weight: bold;
+}
+/* -----------------------------------------------------------------------------
+TABELAS
+----------------------------------------------------------------------------- */
+.tabela_show {
+    background-color: transparent;
+    width: 50%;
+	margin: 0 auto;
+	border-collapse: separate;
+	border-spacing: 3px;
+}
+
+.tabela_show tr{
+	padding:3px;
+}
+
+.tabela_show td{
+	padding:3px;
+}
+/* cinza */
+.tabela_show tbody td:first-child {
+    width: 50%;
+	text-align: right;
+	background-color: #F0F0F0;
+	border: 1px solid;
+    min-width: 100px;
+}
+/* verde */
+.tabela_show tbody td:first-child + td {
+	text-align: left;
+	background-color: #B7E8C5;
+	border: 1px solid;
+	min-width: 100px;
+}
+/* -----------------------------------------------------------------------------
+RODAPÉ
+----------------------------------------------------------------------------- */
+.rodape {
+	background-image:url(../../public/images/fundo_rodape.jpg);
+	height:85px;
+	text-align:center;
+}
+/* -----------------------------------------------------------------------------
+LINKS
+----------------------------------------------------------------------------- */
+.voltar:link, .voltar:visited {
+	color:#037E45;
+	font-weight:normal;
+	text-decoration:none;
+}
+.voltar:hover {
+	color:#FFFFFF;
+	font-weight:normal;
+	text-decoration:none;
+}
+/* -----------------------------------------------------------------------------
+AÇÕES
+----------------------------------------------------------------------------- */
+.acoes:link, .acoes:visited {
+	color:#000000;
+	font-weight:normal;
+    border: 1px solid #ccc;
+	text-decoration:none;
+    padding: 3px;
+}
+.acoes:hover {
+    background-color: antiquewhite;
+	color:#037E45;
+	font-weight:normal;
+	text-decoration:none;
+}
+/* -----------------------------------------------------------------------------
+AÇÕES DELETAR
+----------------------------------------------------------------------------- */
+.acoes_deletar:link, .acoes_deletar:visited {
+	color:#000000;
+	font-weight:normal;
+    border: 1px solid #ccc;
+	text-decoration:none;
+    padding: 3px;
+}
+.acoes_deletar:hover {
+    background-color: #F08080;
+	color:#000000;
+	font-weight:normal;
+	text-decoration:none;
+}
