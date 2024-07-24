@@ -5,11 +5,11 @@
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                     <thead class="form_topo text-[#000000]">
                         <tr>
-                            <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right dark:text-gray-400">
+                            <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right">
                                 Assunto
                             </th>
 
-                            <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right dark:text-gray-400">
+                            <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right">
                                 Status
                             </th>
 
@@ -32,7 +32,7 @@
                         {{-- INICIO DA TABELA --}}
                         <tr class="hover:bg-green-100 odd:bg-white even:bg-gray-100">
                             {{-- COLUNA SUBJECT --}}
-                            <td class="px-4 py-2 text-sm font-medium whitespace-nowrap dark:text-white">
+                            <td class="px-4 py-2 text-sm font-medium whitespace-nowrap">
                                 {{ $support->subject }}
                             </td>
                             {{-- COLUNA STATUS --}}
