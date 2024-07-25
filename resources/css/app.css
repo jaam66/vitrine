@@ -1,24 +1,36 @@
-
-.form_topo{
+.topo{
+	background-color: #006400;
+	padding: 10px;
+	text-align: center;
+}
+.logo{
+	width: 80%;
+	padding: 10px;
+	text-align: center;
+	margin: auto;
+}
+.barra{
     background-image: linear-gradient(#e8f7ec, #a8e1b6);
 }
 
-.topo{
-    background-color: #006400;
-    padding: 10px;
-    text-align: center;
-}
 
-.logo{
-    width: 80%;
-    padding: 10px;
-    text-align: center;
-    margin: auto;
-}
 .descricao_sistema{
 	color: #FFFFFF;
 	font-size: 25px;
 	font-weight: bold;
+}
+.moldura_corpo{
+	width: 100%;
+	padding: 15px 0px 10px 0px;;
+	border: 1px #808080 solid;
+}
+/* -----------------------------------------------------------------------------
+RODAPÉ
+----------------------------------------------------------------------------- */
+.rodape {
+	background-image:url(../../public/images/fundo_rodape.jpg);
+	height:85px;
+	text-align:center;
 }
 /* -----------------------------------------------------------------------------
 TABELAS
@@ -54,16 +66,18 @@ TABELAS
 	min-width: 100px;
 }
 /* -----------------------------------------------------------------------------
-RODAPÉ
------------------------------------------------------------------------------ */
-.rodape {
-	background-image:url(../../public/images/fundo_rodape.jpg);
-	height:85px;
-	text-align:center;
-}
-/* -----------------------------------------------------------------------------
 LINKS
 ----------------------------------------------------------------------------- */
+.menu:link, .menu:visited {
+	color:#000000;
+	font-weight:normal;
+	text-decoration:none;
+}
+.menu:hover {
+	color:#808080;
+	font-weight:normal;
+	text-decoration:none;
+}
 .voltar:link, .voltar:visited {
 	color:#037E45;
 	font-weight:normal;
@@ -85,7 +99,7 @@ AÇÕES
     padding: 3px;
 }
 .acoes:hover {
-    background-color: antiquewhite;
+    background-color: #eaeaea;
 	color:#037E45;
 	font-weight:normal;
 	text-decoration:none;

@@ -13,6 +13,11 @@ use function Laravel\Prompts\select;
 //  -> chama os métodos"
 class SupportController extends Controller
 {
+    public function start()
+    {
+        return view('admin/supports/start');
+    }
+
     public function index(Request $request)
     {
         $filter = $request->get('filter', '');
