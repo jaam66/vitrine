@@ -5,16 +5,15 @@ use App\Http\Controllers\Admin\{SupportController};
 use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Route;
 
-// SUPORTE
 // -----------------------------------------------------------------------------------------
-Route::get('/test', function () {
-    // dd(SupportStatus::cases());
-    dd(array_column(SupportStatus::cases(), 'name'));
-});
+Route::get('/index', function () {
+    return view('index');
+})->name('index');
+// SUPORTE
 // -----------------------------------------------------------------------------------------
 Route::get('/suporte/create', [SupportController::class, 'create'])->name('suporte.create');
 
-Route::get('/suporte/index', [SupportController::class, 'index'])->name('suporte.index');
+Route::get('/suporte/list', [SupportController::class, 'list'])->name('suporte.list');
 
 Route::get('/suporte/{id}/edit', [SupportController::class, 'edit'])->name('suporte.edit');
 
@@ -28,12 +27,9 @@ Route::get('/suporte/{id}', [SupportController::class, 'show'])->name('suporte.s
 
 Route::post('/suporte', [SupportController::class, 'store'])->name('suporte.store');
 
-
-
-Route::get('/suporte/', [SupportController::class, 'start'])->name('suporte.start');
 // -----------------------------------------------------------------------------------------
 Route::get('/contato', [SiteController::class, 'contact']);
-
+// -----------------------------------------------------------------------------------------
 Route::get('/', function () {
     return view('welcome');
 });

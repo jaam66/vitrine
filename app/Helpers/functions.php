@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Str;
+
 use App\Enums\SupportStatus;
 
 if(!function_exists('getStatusSupport')){
@@ -8,6 +10,14 @@ if(!function_exists('getStatusSupport')){
         return SupportStatus::fromValue($status);
     }
 
+}
+
+if(!function_exists('getLimitTexto'))
+{
+    function getLimitTexto(string $texto, int $limit = 8): string
+    {
+        return Str::limit($texto, $limit, '');
+    }
 }
 
 if (!function_exists('getInitials')) {

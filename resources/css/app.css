@@ -1,3 +1,5 @@
+@import '@fortawesome/fontawesome-free/css/all.css';
+
 .topo{
 	background-color: #006400;
 	padding: 10px;
@@ -50,6 +52,11 @@ TABELAS
 .tabela_show td{
 	padding:3px;
 }
+.alert_erro{
+	background-color: #F08080;
+	border: 1px #037E45 solid;
+	padding: 5px;
+}
 /* cinza */
 .tabela_show tbody td:first-child {
     width: 50%;
@@ -64,6 +71,7 @@ TABELAS
 	background-color: #B7E8C5;
 	border: 1px solid;
 	min-width: 100px;
+	padding: 3px;
 }
 /* -----------------------------------------------------------------------------
 LINKS

@@ -15,10 +15,10 @@ class SupportController extends Controller
 {
     public function start()
     {
-        return view('admin/supports/start');
+        return view('/inicial');
     }
 
-    public function index(Request $request)
+    public function list(Request $request)
     {
         $filter = $request->get('filter', '');
         if($filter){
@@ -48,7 +48,7 @@ class SupportController extends Controller
         // ------------------------------------------------------------------
         // dd($supports);
         // ------------------------------------------------------------------
-        return view('admin/supports/index', compact('supports'));
+        return view('admin/supports/list', compact('supports'));
     }
 
     // função 'SHOW' mostra os dados
@@ -80,7 +80,7 @@ class SupportController extends Controller
   
         $support->create($data);
         
-        return redirect()->route('suporte.index');
+        return redirect()->route('suporte.list');
 
     }
     // função 'EDIT' redireciona para a página 'edit'
@@ -104,7 +104,7 @@ class SupportController extends Controller
         // $support->save();
         $support->update($request->validated());
         
-        return redirect()->route('suporte.index');
+        return redirect()->route('suporte.list');
     }
 
     // função 'DESTROY' deleta os dados no BD
@@ -114,6 +114,6 @@ class SupportController extends Controller
         }
         // dd($support->id, "deletando ...");
         $support->delete();
-        return redirect()->route('suporte.index');
+        return redirect()->route('suporte.list');
     }
 }

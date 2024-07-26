@@ -2,6 +2,6 @@
 {{-- diretiva section --}}
 @section('content')
 {{-- ------------------------------------------------------------------------------------- --}}
-    @include('admin.supports.partials.inicial')
+    @include('admin.partials.inicial')
 {{-- ------------------------------------------------------------------------------------- --}}
 @endsection

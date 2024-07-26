@@ -8,9 +8,7 @@
 
 @section('content')
 {{-- ------------------------------------------------------------------------------------- --}}
-    <a href="{{ route('suporte.index') }}">Voltar</a>
-    <br><br>
-    <x-alert/>
+    <a href="{{ route('suporte.list') }}">Voltar</a>
     <br>
     <form action="{{ route('suporte.store') }}" method="POST">
         @include('admin.supports.partials.form')
