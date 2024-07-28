@@ -27,8 +27,11 @@ Route::get('/suporte/{id}', [SupportController::class, 'show'])->name('suporte.s
 
 Route::post('/suporte', [SupportController::class, 'store'])->name('suporte.store');
 
+Route::get('/suporte', [SupportController::class, 'show'])->name('suporte.show');
 // -----------------------------------------------------------------------------------------
-Route::get('/contato', [SiteController::class, 'contact']);
+// Route::get('/suporte', function () {
+//     return view('index');
+// })->name('index');
 // -----------------------------------------------------------------------------------------
 Route::get('/', function () {
     return view('welcome');

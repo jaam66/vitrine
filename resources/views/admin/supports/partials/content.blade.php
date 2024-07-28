@@ -43,8 +43,9 @@
                             <td class="px-4 py-2 text-sm whitespace-nowrap">
                                 {{ getLimitTexto($support->body,20) }}
                                 &nbsp;&nbsp;
-                                <i class="fa-sharp-duotone fa-solid fa-comment-dots"></i>
-                                
+                                <a href="" onclick="abrirModal();" class="acoes_deletar">
+                                    <i class="fa-sharp-duotone fa-solid fa-comment-dots"></i>
+                                </a>
                             </td>
                             {{-- COLUNA USUÁRIO --}}
                             <td class="px-4 py-2 text-sm whitespace-nowrap">
