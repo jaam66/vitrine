@@ -13,7 +13,7 @@ use function Laravel\Prompts\select;
 //  -> chama os métodos"
 class SupportController extends Controller
 {
-    public function list(Request $request)
+    public function index(Request $request)
     {
         $filter = $request->get('filter', '');
         if($filter){
@@ -43,7 +43,7 @@ class SupportController extends Controller
         // ------------------------------------------------------------------
         // dd($supports);
         // ------------------------------------------------------------------
-        return view('admin/supports/list', compact('supports'));
+        return view('admin/supports/index', compact('supports'));
     }
 
     // função 'SHOW' mostra os dados
@@ -75,7 +75,7 @@ class SupportController extends Controller
   
         $support->create($data);
         
-        return redirect()->route('suporte.list');
+        return redirect()->route('suporte.index');
 
     }
     // função 'EDIT' redireciona para a página 'edit'
@@ -99,7 +99,7 @@ class SupportController extends Controller
         // $support->save();
         $support->update($request->validated());
         
-        return redirect()->route('suporte.list');
+        return redirect()->route('suporte.index');
     }
 
     // função 'DESTROY' deleta os dados no BD
@@ -109,6 +109,6 @@ class SupportController extends Controller
         }
         // dd($support->id, "deletando ...");
         $support->delete();
-        return redirect()->route('suporte.list');
+        return redirect()->route('suporte.index');
     }
 }

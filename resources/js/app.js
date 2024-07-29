@@ -1,5 +1,8 @@
 import './bootstrap';
 
-function abrirModal(){
-    alert("Aloisio");
-}
+import Alpine from 'alpinejs'
+
+Alpine.start()
+
+window.Alpine = Alpine
+

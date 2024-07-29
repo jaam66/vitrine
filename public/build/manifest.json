@@ -36,12 +36,12 @@
     "src": "public/images/fundo_rodape.jpg"
   },
   "resources/css/app.css": {
-    "file": "assets/app-aa12b770.css",
+    "file": "assets/app-1511514d.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
-    "file": "assets/app-33584bf2.js",
+    "file": "assets/app-6fa6b845.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

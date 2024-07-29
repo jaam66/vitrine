@@ -40,10 +40,21 @@
                                 <x-status-support :status="$support->status"></x-status-support>
                             </td>
                             {{-- COLUNA DÚVIDA --}}
-                            <td class="px-4 py-2 text-sm whitespace-nowrap">
+                            <td class="px-4 py-2">
+                                <x-modal name="modalTexto{{ $support->id }}">
+                                    <div class="p-0" >
+                                        <div class="bg-[#006400] color-[#fff] text-xl p-4">
+                                            <h3 class="text-[#ffffff]">DÚVIDA DE: {{ $support->name }}</h3> 
+                                        </div>
+                                        <div class="text-2xl p-2  max-h-96 overflow-y-auto">
+                                            {{ $support->body }}
+                                        </div>
+                                        <a href="">FECHAR</a>
+                                    </div>
+                                </x-modal>
                                 {{ getLimitTexto($support->body,20) }}
                                 &nbsp;&nbsp;
-                                <a href="" onclick="abrirModal();" class="acoes_deletar">
+                                <a href="#" x-data x-on:click="$dispatch('open-modal','modalTexto{{ $support->id }}')" class="acoes_modal_texto">
                                     <i class="fa-sharp-duotone fa-solid fa-comment-dots"></i>
                                 </a>
                             </td>
@@ -63,8 +74,8 @@
                                 <a href="{{ route('suporte.edit', [$support->id, 'page' => $supports->currentPage()]) }}" class="acoes">
                                     Editar
                                 </a>
-                                <a href="{{ route('suporte.edit', $support->id) }}" class="acoes_deletar">
-                                    Editar
+                                <a href="{{ route('suporte.destroy', $support->id) }}" class="acoes_deletar">
+                                    Deletar
                                 </a>
                             </td>
                         </tr>
@@ -76,22 +87,3 @@
     </div>
 </div>
 
-<x-modal name="deletar_lote" :show="false" focusable>
-    <div class="p-3 -mt-2 text-center">
-        <div class="p-3 -m-t-2 text-center">
-        </div>
-        
-        <h3 class="text-lg font-bold text-gray-700 px-3">Deletar Inscrição</h3>
-        
-        <div class="grid md:grid-cols-1 gap-4 sm:grid-cols-1">
-            <div class="col w-full">
-                <p class="col w-full py-10 font-bold">Deseja deletar o cadastro do lote ?</p>
-            </div>
-        </div>
-        
-            DELETAR
-        
-            FECHAR
-    </div>
-    
-</x-modal>

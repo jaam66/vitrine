@@ -8,7 +8,7 @@
     <title> @yield('title') - {{ config('app.name') }} </title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo_harpia.ico') }}" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
  
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     

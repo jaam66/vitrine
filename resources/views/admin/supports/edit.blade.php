@@ -6,7 +6,7 @@
     {{-- <h1>Detalhes do Suporte {{ $support->id }}</h1> --}}
     <div class="barra flex justify-between p-4">
         <div><h1>Editar Dúvida</h1></div>
-        <div><a href="{{  route('suporte.list', ['page' => request()->page]) }}" class="voltar">Voltar</a></div>
+        <div><a href="{{  route('suporte.index', ['page' => request()->page]) }}" class="voltar">Voltar</a></div>
     </div>
 @endsection
 @section('content')
