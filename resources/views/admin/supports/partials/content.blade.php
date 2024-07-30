@@ -1,8 +1,8 @@
 <div class="flex flex-col mt-2 my-4">
     <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-            <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <div class="overflow-hidden border border-gray-200 md:rounded-lg">
+                <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-[#797979] text-[#FFFFFF]">
                         <tr>
                             <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right">
@@ -71,8 +71,28 @@
                                     Detalhes
                                 </a>
                                 &nbsp;
-                                <a href="{{ route('suporte.edit', [$support->id, 'page' => $supports->currentPage()]) }}" class="acoes">
+                                <x-modal name="modalEdita{{ $support->id }}">
+                                    <div class="p-0" >
+                                        <div class="bg-[#006400] color-[#fff] text-xl p-4">
+                                            <h3 class="text-[#ffffff]">DÚVIDA DE: {{ $support->name }}</h3> 
+                                        </div>
+                                        <div class="text-2xl p-2">
+                                            <form action="{{ route('suporte.update', $support->id) }}" method="POST">
+                                                <!-- <input type="text" value="{{ csrf_token() }}" name="_token"> -->
+                                                @method('PUT')
+                                                @include('admin.supports.partials.form',[
+                                                    'support' => $support
+                                                ])
+                                            </form>
+                                        </div>
+                                        <a href="">FECHAR</a>
+                                    </div>
+                                </x-modal>
+                                {{-- <a href="{{ route('suporte.edit', [$support->id, 'page' => $supports->currentPage()]) }}" class="acoes">
                                     Editar
+                                </a> --}}
+                                <a href="#" x-data={} x-on:click="$dispatch('open-modal','modalEdita{{ $support->id }}')" class="acoes">
+                                   Editar
                                 </a>
                                 <a href="{{ route('suporte.destroy', $support->id) }}" class="acoes_deletar">
                                     Deletar
