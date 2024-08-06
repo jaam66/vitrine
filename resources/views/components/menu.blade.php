@@ -9,6 +9,6 @@
       <a class="menu" href="#"><i class="fa-sharp-duotone fa-solid fa-users"></i> Usuário</a>
     </li>
     <li class="mr-6">
-      <a class="menu"  href="/"><i class="fa-sharp-duotone fa-solid fa-door-open"></i> Sair</a>
+      <a class="menu"  href="http://localhost:8990/logout"><i class="fa-sharp-duotone fa-solid fa-door-open"></i> Sair</a>
     </li>
   </ul>
