@@ -9,6 +9,11 @@
       <a class="menu" href="#"><i class="fa-sharp-duotone fa-solid fa-users"></i> Usuário</a>
     </li>
     <li class="mr-6">
-      <a class="menu"  href="http://localhost:8990/logout"><i class="fa-sharp-duotone fa-solid fa-door-open"></i> Sair</a>
+      <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <a class="menu"  href="" onclick="event.preventDefault(); this.closest('form').submit();">
+             <i class="fa-sharp-duotone fa-solid fa-door-open"></i> Sair
+        </a>
+    </form>
     </li>
   </ul>
