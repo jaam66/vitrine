@@ -14,6 +14,6 @@
         <a class="menu"  href="" onclick="event.preventDefault(); this.closest('form').submit();">
              <i class="fa-sharp-duotone fa-solid fa-door-open"></i> Sair
         </a>
-    </form>
+      </form>
     </li>
   </ul>
