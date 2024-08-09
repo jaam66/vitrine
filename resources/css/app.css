@@ -91,6 +91,26 @@ LINKS
 	font-weight:normal;
 	text-decoration:none;
 }
+.enviar_form:link, .enviar_form:visited {
+	width: 50px;
+	background-color: #006400 !important;
+	color:#037E45;
+	font-weight:normal;
+	border: 1px solid #000;
+	border-radius: 20px;
+	text-decoration:none;
+	padding: 5px;
+}
+.enviar_form:hover {
+	width: 50px;
+	background-color: #006400;
+	color:#ffffff;
+	font-weight:normal;
+	border: 1px solid #000;
+	border-radius: 10px;
+	text-decoration:none;
+	padding: 5px;
+}
 .voltar:link, .voltar:visited {
 	color:#037E45;
 	font-weight:normal;
@@ -150,6 +170,26 @@ AÇÕES DELETAR
 .acoes_deletar:hover {
     background-color: #F08080;
 	color:#000000;
+	font-weight:normal;
+	text-decoration:none;
+}
+/* -----------------------------------------------------------------------------
+FECHAR
+----------------------------------------------------------------------------- */
+.fechar_texto:link, .fechar_texto:link:visited {
+	background-image: linear-gradient(#e8f7ec, #a8e1b6);
+	color:#000000;
+    border: 1px solid #000;
+	border-radius: 20px;
+	font-weight:normal;
+	text-decoration:none;
+    padding: 3px;
+}
+.fechar_texto:hover {
+	background-color: #000000;
+	color:#fff;
+	border: 1px solid #000;
+	border-radius: 20px;
 	font-weight:normal;
 	text-decoration:none;
 }

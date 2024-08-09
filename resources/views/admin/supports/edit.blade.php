@@ -17,5 +17,6 @@
         @include('admin.supports.partials.form',[
             'support' => $support
         ])
+        <input name="page" type="hidden" value="{{ request()->page }}">
     </form>
 @endsection

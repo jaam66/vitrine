@@ -30,7 +30,6 @@ class StoreUpdateSupport extends FormRequest
                 'max:10000',
             ],
         ];
-
         if ($this->method() === 'PUT') {
             $rules['subject'] = [
                 'required',

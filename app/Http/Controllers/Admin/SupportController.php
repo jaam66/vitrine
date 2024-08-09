@@ -35,7 +35,7 @@ class SupportController extends Controller
             $supports = DB::table('laravel.supports')
                             ->select('u.name', 'supports.*')
                             ->join('laravel.users AS u', 'supports.user_id', '=', 'u.id')
-                            ->orderBy('id','desc');
+                            ->orderBy('created_at','desc');
             // --------------------------------------------------------------
             // dd($supports);
             // --------------------------------------------------------------
@@ -98,9 +98,11 @@ class SupportController extends Controller
         // $support->subject = $request->subject;
         // $support->body = $request->body;
         // $support->save();
+        $page = $request->page;
+        // dd(compact('support'));
         $support->update($request->validated());
-        
-        return redirect()->route('suporte.index');
+        // return redirect()->route('suporte.index');
+        return redirect()->route('suporte.index', ['page' => $request->input('page', 1)]);
     }
 
     // função 'DESTROY' deleta os dados no BD

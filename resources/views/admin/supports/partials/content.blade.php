@@ -39,17 +39,22 @@
                             <td class="px-12 py-2 text-sm font-medium whitespace-nowrap">
                                 <x-status-support :status="$support->status"></x-status-support>
                             </td>
+                            {{-- ------------- --}}
                             {{-- COLUNA DÚVIDA --}}
+                            {{-- ------------- --}}
                             <td class="px-4 py-2">
                                 <x-modal name="modalTexto{{ $support->id }}">
                                     <div class="p-0" >
                                         <div class="bg-[#006400] color-[#fff] text-xl p-4">
                                             <h3 class="text-[#ffffff]">DÚVIDA DE: {{ $support->name }}</h3> 
                                         </div>
-                                        <div class="text-2xl p-2  max-h-96 overflow-y-auto">
+                                        <div class="text-2xl p-3  max-h-96 overflow-y-auto">
                                             {{ $support->body }}
+                                            <hr>
                                         </div>
-                                        <a href="">FECHAR</a>
+                                        <div class="text-center p-3">
+                                            <a href="" class="fechar_texto">FECHAR</a>
+                                        </div>
                                     </div>
                                 </x-modal>
                                 {{ getLimitTexto($support->body,20) }}
@@ -71,28 +76,8 @@
                                     Detalhes
                                 </a>
                                 &nbsp;
-                                <x-modal name="modalEdita{{ $support->id }}">
-                                    <div class="p-0" >
-                                        <div class="bg-[#006400] color-[#fff] text-xl p-4">
-                                            <h3 class="text-[#ffffff]">DÚVIDA DE: {{ $support->name }}</h3> 
-                                        </div>
-                                        <div class="text-2xl p-2">
-                                            <form action="{{ route('suporte.update', $support->id) }}" method="POST">
-                                                <!-- <input type="text" value="{{ csrf_token() }}" name="_token"> -->
-                                                @method('PUT')
-                                                @include('admin.supports.partials.form',[
-                                                    'support' => $support
-                                                ])
-                                            </form>
-                                        </div>
-                                        <a href="">FECHAR</a>
-                                    </div>
-                                </x-modal>
-                                {{-- <a href="{{ route('suporte.edit', [$support->id, 'page' => $supports->currentPage()]) }}" class="acoes">
+                                <a href="{{ route('suporte.edit', [$support->id, 'page' => $supports->currentPage()]) }}" class="acoes">
                                     Editar
-                                </a> --}}
-                                <a href="#" x-data={} x-on:click="$dispatch('open-modal','modalEdita{{ $support->id }}')" class="acoes">
-                                   Editar
                                 </a>
                                 <a href="{{ route('suporte.destroy', $support->id) }}" class="acoes_deletar">
                                     Deletar
