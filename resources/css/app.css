@@ -79,7 +79,7 @@ TABELAS
 }
 
 /* -----------------------------------------------------------------------------
-LINKS
+MENU (LINKS)
 ----------------------------------------------------------------------------- */
 .menu:link, .menu:visited {
 	color:#000000;
@@ -91,26 +91,9 @@ LINKS
 	font-weight:normal;
 	text-decoration:none;
 }
-.enviar_form:link, .enviar_form:visited {
-	width: 50px;
-	background-color: #006400 !important;
-	color:#037E45;
-	font-weight:normal;
-	border: 1px solid #000;
-	border-radius: 20px;
-	text-decoration:none;
-	padding: 5px;
-}
-.enviar_form:hover {
-	width: 50px;
-	background-color: #006400;
-	color:#ffffff;
-	font-weight:normal;
-	border: 1px solid #000;
-	border-radius: 10px;
-	text-decoration:none;
-	padding: 5px;
-}
+/* -----------------------------------------------------------------------------
+VOLTAR (LINK)
+----------------------------------------------------------------------------- */
 .voltar:link, .voltar:visited {
 	color:#037E45;
 	font-weight:normal;
@@ -122,7 +105,7 @@ LINKS
 	text-decoration:none;
 }
 /* -----------------------------------------------------------------------------
-AÇÕES
+AÇÕES (LINK)
 ----------------------------------------------------------------------------- */
 .acoes:link, .acoes:visited {
 	color:#000000;
@@ -138,7 +121,7 @@ AÇÕES
 	text-decoration:none;
 }
 /* -----------------------------------------------------------------------------
-AÇÕES VISUALIZAR TEXTO
+AÇÕES VISUALIZAR TEXTO (LINK)
 ----------------------------------------------------------------------------- */
 .acoes_modal_texto:link, .acoes_modal_texto:link:visited {
 	background-color: transparent;
@@ -187,9 +170,26 @@ FECHAR
 }
 .fechar_texto:hover {
 	background-color: #000000;
-	color:#fff;
+	color:#037E45;
 	border: 1px solid #000;
 	border-radius: 20px;
 	font-weight:normal;
+	text-decoration:none;
+}
+/* -----------------------------------------------------------------------------
+ENVIAR FORM (BOTÃO)
+----------------------------------------------------------------------------- */
+.enviarForm, .enviarForm:visited {
+	width: 100px;
+	background-color: #037E45;
+	color:#ffffff;
+	font-weight:normal;
+	border-radius: 20px;
+	text-decoration:none;
+}
+.enviarForm:hover {
+	color:#ffffff;
+	font-weight:bold;
+	border: 1px #2F4F4F solid;
 	text-decoration:none;
 }
