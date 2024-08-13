@@ -1,10 +1,5 @@
 @import '@fortawesome/fontawesome-free/css/all.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
 .topo{
 	background-color: #006400;
 	padding: 10px;
@@ -190,6 +185,42 @@ ENVIAR FORM (BOTÃO)
 .enviarForm:hover {
 	color:#ffffff;
 	font-weight:bold;
+	border: 1px #2F4F4F solid;
+	text-decoration:none;
+}
+/* -----------------------------------------------------------------------------
+LOGAR FORM (BOTÃO)
+----------------------------------------------------------------------------- */
+.logar, .logar:visited {
+	width: auto;
+	background-color: #037E45;
+	color:#ffffff;
+	font-weight:normal;
+	border-radius: 15px;
+	text-decoration:none;
+}
+.logar:hover {
+	background-color: #037E45 !important;
+	color:#00FF7F;
+	border: 1px #2F4F4F solid;
+	text-decoration:none;
+}
+/* -----------------------------------------------------------------------------
+LOGAR FORM (BOTÃO)
+----------------------------------------------------------------------------- */
+.esqueceu, .esqueceu:visited {
+	width: auto;
+	background-color: #037E45;
+	color:#ffffff;
+	font-weight:normal;
+	border: 1px #2F4F4F solid;
+	border-radius: 20px;
+	text-align: center;
+	text-decoration:none;
+	padding: 5px 10px 5px 10px;
+}
+.esqueceu:hover {
+	color:#00FF7F;
 	border: 1px #2F4F4F solid;
 	text-decoration:none;
 }

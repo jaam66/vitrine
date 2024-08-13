@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\{SupportController};
+use App\Http\Controllers\Admin\{UserController};
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -61,6 +62,21 @@ Route::middleware('auth')->group(function () {
     Route::put('/suporte/{id}', [SupportController::class, 'update'])->name('suporte.update');
 
     Route::delete('/suporte/{id}', [SupportController::class, 'destroy'])->name('suporte.destroy');
+
+// -----------------------------------------------------------------------------------------
+ // USUARIO
+// -----------------------------------------------------------------------------------------
+    Route::get('/usuario', [UserController::class, 'index'])->name('usuario.index');
+
+    Route::get('/usuario/create', [UserController::class, 'create'])->name('usuario.create');
+
+    Route::post('/usuario', [UserController::class, 'store'])->name('usuario.store');
+
+    Route::get('/usuario/{id}', [UserController::class, 'show'])->name('usuario.show');
+
+    Route::get('/usuario/{id}/edit', [UserController::class, 'edit'])->name('usuario.edit');
+
+    Route::delete('/usuario/{id}', [UserController::class, 'destroy'])->name('usuario.destroy');
 });
 
 require __DIR__.'/auth.php';

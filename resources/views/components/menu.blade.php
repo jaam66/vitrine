@@ -6,7 +6,7 @@
       <a class="menu" href="{{ route('suporte.index') }}"><i class="fa-sharp-duotone fa-solid fa-headset"></i> Suporte</a>
     </li>
     <li class="mr-6">
-      <a class="menu" href="#"><i class="fa-sharp-duotone fa-solid fa-users"></i> Usuário</a>
+      <a class="menu" href="{{ route('usuario.index') }}"><i class="fa-sharp-duotone fa-solid fa-users"></i> Usuário</a>
     </li>
     <li class="mr-6">
       <form method="POST" action="{{ route('logout') }}">

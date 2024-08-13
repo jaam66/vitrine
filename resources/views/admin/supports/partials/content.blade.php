@@ -1,3 +1,6 @@
+{{-- --------------------------------------------------------------------------------------------------------- --}}
+{{-- DÚVIDAS CONTENT (CONTEÚDO) --}}
+{{-- --------------------------------------------------------------------------------------------------------- --}}
 <div class="flex flex-col mt-2 my-4">
     <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
@@ -28,6 +31,7 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($supports->items() as $support)
+                        {{-- {{ $supports->currentPage() }} --}}
                         {{-- {{ dd($support); }} --}}
                         {{-- INICIO DA TABELA --}}
                         <tr class="hover:bg-green-100 odd:bg-white even:bg-gray-100">
