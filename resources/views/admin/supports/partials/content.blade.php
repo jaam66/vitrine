@@ -12,10 +12,6 @@
                                 Assunto
                             </th>
 
-                            <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right">
-                                Status
-                            </th>
-
                             <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right">
                                 Dúvida
                             </th>
@@ -35,13 +31,11 @@
                         {{-- {{ dd($support); }} --}}
                         {{-- INICIO DA TABELA --}}
                         <tr class="hover:bg-green-100 odd:bg-white even:bg-gray-100">
+                            {{-- -------------- --}}
                             {{-- COLUNA SUBJECT --}}
+                            {{-- -------------- --}}
                             <td class="px-4 py-2 text-sm font-medium whitespace-nowrap">
                                 {{ $support->subject }}
-                            </td>
-                            {{-- COLUNA STATUS --}}
-                            <td class="px-12 py-2 text-sm font-medium whitespace-nowrap">
-                                <x-status-support :status="$support->status"></x-status-support>
                             </td>
                             {{-- ------------- --}}
                             {{-- COLUNA DÚVIDA --}}
@@ -83,9 +77,13 @@
                                 <a href="{{ route('suporte.edit', [$support->id, 'page' => $supports->currentPage()]) }}" class="acoes">
                                     Editar
                                 </a>
-                                <a href="{{ route('suporte.destroy', $support->id) }}" class="acoes_deletar">
-                                    Deletar
-                                </a>
+                                <form method="POST" action="{{ route('suporte.destroy', $support->id) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a href="" class="acoes_deletar" onclick="event.preventDefault(); this.closest('form').submit();">
+                                        Deletar
+                                    </a>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

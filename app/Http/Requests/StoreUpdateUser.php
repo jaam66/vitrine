@@ -24,18 +24,27 @@ class StoreUpdateUser extends FormRequest
     {
         $rules = [
             'name' => 'required|min:3|max:255|unique:users',
-            'user_name' => [
+            'admin' => 'required|min:1|max:1',
+            'email' => [
                 'required',
                 'min:10',
                 'max:255',
             ],
+            'password' => [
+                'required',
+                'min:8',
+            ]
         ];
         if ($this->method() === 'PUT') {
             $rules['name'] = [
                 'required',
                 'min:10',
                 'max:255',
-                Rule::unique('name')->ignore($this->id),
+                Rule::unique('users')->ignore($this->id),
+            ];
+            $rules['password'] = [
+                'nullable',
+                'min:8',
             ];
         }
 

@@ -18,6 +18,7 @@ class SupportController extends Controller
 {
     public function index(Request $request)
     {
+        // dd($request);
         $filter = $request->get('filter', '');
         if($filter){
             // --------------------------------------------------------------
@@ -27,7 +28,7 @@ class SupportController extends Controller
             // --------------------------------------------------------------
             $supports = DB::table('laravel.supports')
                             ->select('u.name', 'supports.*')
-                            ->join('laravel.users AS u', 'supports.user_id', '=', 'u.id')
+                            ->join('laravel.users AS u', 'supports.equipment_id', '=', 'u.id')
                             ->where('subject', 'like', "%{$filter}%")
                             ->orWhere('body', 'like', "%{$filter}%")
                             ->orWhere('u.name', 'like', "%{$filter}%")
@@ -36,7 +37,7 @@ class SupportController extends Controller
         else{
             $supports = DB::table('laravel.supports')
                             ->select('u.name', 'supports.*')
-                            ->join('laravel.users AS u', 'supports.user_id', '=', 'u.id')
+                            ->join('laravel.users AS u', 'supports.equipment_id', '=', 'u.id')
                             ->orderBy('created_at','desc');
             // --------------------------------------------------------------
             // dd($supports);
@@ -74,10 +75,8 @@ class SupportController extends Controller
     public function store(StoreUpdateSupport $request, Support $support)
     {
         $data = $request->validated();
-        $data['status'] = 'a';
-  
+        // dd($data);
         $support->create($data);
-        
         return redirect()->route('suporte.index');
 
     }

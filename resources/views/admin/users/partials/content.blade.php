@@ -12,8 +12,12 @@
                                 Nome
                             </th>
 
-                            <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right">
+                            <th scope="col" class="px-12 py-3.5 text-sm font-normal text-center rtl:text-right">
                                 User Name
+                            </th>
+
+                            <th scope="col" class="px-12 py-3.5 text-sm font-normal text-center rtl:text-right">
+                                Administrador
                             </th>
 
                             <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right">
@@ -38,13 +42,19 @@
                             {{-- ------------- --}}
                             {{-- COLUNA NAME USER --}}
                             {{-- ------------- --}}
-                            <td class=" px-4 py-2">
+                            <td class="text-center px-4 py-2">
                                 {{ $user->user_name }}
+                            </td>
+                            {{-- ------------- --}}
+                            {{-- COLUNA ADMINISTRADOR --}}
+                            {{-- ------------- --}}
+                            <td class="text-center px-4 py-2">
+                                {{ getAdmin($user->admin) }}
                             </td>
                             {{-- ------------- --}}
                             {{-- COLUNA E-MAIL --}}
                             {{-- ------------- --}}
-                            <td class="bg-[#ff0000] px-4 py-2">
+                            <td class="px-4 py-2">
                                 {{ $user->email }}
                             </td>
                             {{-- COLUNA VER --}}
@@ -57,6 +67,7 @@
                                 <a href="{{ route('usuario.edit', [$user->id, 'page' => $users->currentPage()]) }}" class="acoes">
                                     Editar
                                 </a>
+                                &nbsp;
                                 <a href="{{ route('usuario.destroy', $user->id) }}" class="acoes_deletar">
                                     Deletar
                                 </a>
