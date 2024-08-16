@@ -8,16 +8,20 @@
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-[#797979] text-[#FFFFFF]">
                         <tr>
+                            <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right">
+                                Remetente
+                            </th>
+
+                            <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right">
+                                Equipamento
+                            </th>
+
                             <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right">
                                 Assunto
                             </th>
 
                             <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right">
                                 Dúvida
-                            </th>
-
-                            <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right">
-                                Usuário
                             </th>
 
                             <th scope="col" class="relative py-3.5 px-4">
@@ -31,6 +35,18 @@
                         {{-- {{ dd($support); }} --}}
                         {{-- INICIO DA TABELA --}}
                         <tr class="hover:bg-green-100 odd:bg-white even:bg-gray-100">
+                            {{-- -------------- --}}
+                            {{-- COLUNA SENDER --}}
+                            {{-- -------------- --}}
+                            <td class="px-4 py-2 text-sm font-medium whitespace-nowrap">
+                                {{ $support->sender }}
+                            </td>
+                            {{-- -------------- --}}
+                            {{-- COLUNA EQUIPMENTS --}}
+                            {{-- -------------- --}}
+                            <td class="px-4 py-2 text-sm font-medium whitespace-nowrap">
+                                {{ $support->description }}
+                            </td>
                             {{-- -------------- --}}
                             {{-- COLUNA SUBJECT --}}
                             {{-- -------------- --}}
@@ -51,7 +67,7 @@
                                             <hr>
                                         </div>
                                         <div class="text-center p-3">
-                                            <a href="" class="fechar_texto">FECHAR</a>
+                                            <a href="" class="botaoModal">FECHAR</a>
                                         </div>
                                     </div>
                                 </x-modal>
@@ -60,13 +76,6 @@
                                 <a href="#" x-data x-on:click="$dispatch('open-modal','modalTexto{{ $support->id }}')" class="acoes_modal_texto">
                                     <i class="fa-sharp-duotone fa-solid fa-comment-dots"></i>
                                 </a>
-                            </td>
-                            {{-- COLUNA USUÁRIO --}}
-                            <td class="px-4 py-2 text-sm whitespace-nowrap">
-                                <div class="flex items-center text-center">
-                                    {{-- {{ $support['user']['name'] }} --}}
-                                    {{ $support->name }}
-                                </div>
                             </td>
                             {{-- COLUNA VER --}}
                             <td class="px-4 py-2 text-sm whitespace-nowrap flex">
@@ -77,13 +86,43 @@
                                 <a href="{{ route('suporte.edit', [$support->id, 'page' => $supports->currentPage()]) }}" class="acoes">
                                     Editar
                                 </a>
-                                <form method="POST" action="{{ route('suporte.destroy', $support->id) }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <a href="" class="acoes_deletar" onclick="event.preventDefault(); this.closest('form').submit();">
-                                        Deletar
-                                    </a>
-                                </form>
+                                <x-modal name="modalDelete{{ $support->id }}">
+                                    <div class="p-0" >
+                                        <div class="bg-[#006400] color-[#fff] text-xl p-4">
+                                            <h3 class="text-[#ffffff]">Deletar </h3> 
+                                        </div>
+                                        <div class="text-lg p-3  max-h-96 overflow-y-auto">
+                                            Remetente: {{ $support->sender }}
+                                            <br>
+                                            Equipamento: {{ $support->description }}
+                                            <br>
+                                            Assunto: {{ $support->subject }}
+                                            <br><br>
+                                            Deseja deletar esta dúvida?
+                                            <hr>
+                                        </div>
+                                        <div class="flex flex-row justify-between px-5">
+                                            <div class="text-center py-2">
+                                                <a href="" class="botaoModal">
+                                                    Fechar
+                                                </a>
+                                            </div>
+                                            <div class="text-center py-2">
+                                                <form method="POST" action="{{ route('suporte.destroy', $support->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <a href="" class="botaoModal" onclick="event.preventDefault(); this.closest('form').submit();">
+                                                        Deletar
+                                                    </a>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </x-modal>
+                                &nbsp;
+                                <a href="#" x-data x-on:click="$dispatch('open-modal','modalDelete{{ $support->id }}')" class="acoes_deletar">
+                                    Deletar
+                                </a>
                             </td>
                         </tr>
                         @endforeach

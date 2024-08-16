@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateSupport;
+use App\Models\Equipment;
 use App\Models\Support;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -27,17 +28,20 @@ class SupportController extends Controller
             //                 ->orWhere('body', 'like', "%{$filter}%");
             // --------------------------------------------------------------
             $supports = DB::table('laravel.supports')
-                            ->select('u.name', 'supports.*')
-                            ->join('laravel.users AS u', 'supports.equipment_id', '=', 'u.id')
+                            ->select('u.name', 'e.description', 'supports.*')
+                            ->join('laravel.users AS u', 'supports.user_id', '=', 'u.id')
+                            ->join('laravel.equipments AS e', 'supports.equipment_id', '=', 'e.id')
                             ->where('subject', 'like', "%{$filter}%")
                             ->orWhere('body', 'like', "%{$filter}%")
                             ->orWhere('u.name', 'like', "%{$filter}%")
+                            ->orWhere('e.description', 'like', "%{$filter}%")
                             ->orderBy('id','desc');
         }
         else{
             $supports = DB::table('laravel.supports')
-                            ->select('u.name', 'supports.*')
+                            ->select('u.name', 'e.description', 'supports.*')
                             ->join('laravel.users AS u', 'supports.equipment_id', '=', 'u.id')
+                            ->join('laravel.equipments AS e', 'supports.equipment_id', '=', 'e.id')
                             ->orderBy('created_at','desc');
             // --------------------------------------------------------------
             // dd($supports);
@@ -86,22 +90,28 @@ class SupportController extends Controller
         if(!$support = $support->where('id', $id)->first()){
             return back();
         }
-        return view('admin/supports/edit', compact('support'));
+        $equipments = Equipment::all();
+        return view('admin/supports/edit', compact('support','equipments'));
     }
 
     // função 'UPDATE' atualiza os dados no BD
     public function update(StoreUpdateSupport $request, Support $support, string|int $id)
     {
-        // dd($id, $request->subject);
+        // $support->id = $request->id;
+        // $support->sender = $request->sender;
+        // $support->equipment_id = $request->equipment_id;
+        // $support->subject = $request->subject;
+        // $support->body = $request->body;
+        // dd($support->equipment_id);
+        
         if(!$support = $support->where('id', $id)->first()){
             return back();
         }
-        // $support->subject = $request->subject;
-        // $support->body = $request->body;
-        // $support->save();
         $page = $request->page;
-        // dd(compact('support'));
+        // $support->save();
+        // dd($support);
         $support->update($request->validated());
+        // dd($support);
         // return redirect()->route('suporte.index');
         return redirect()->route('suporte.index', ['page' => $request->input('page', 1)]);
     }

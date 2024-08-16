@@ -14,16 +14,11 @@ return new class extends Migration
     {
         Schema::create('supports', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('user_id')->index();
+            $table->string('sender');
             $table->uuid('equipment_id')->index();
             $table->string('subject');
             $table->text('body');
             $table->timestamps();
-
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users');
 
             $table->foreign('equipment_id')
                 ->references('id')

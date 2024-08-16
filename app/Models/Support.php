@@ -14,13 +14,15 @@ class Support extends Model
     use HasFactory;
 
     protected $fillable = [
+        'sender',
+        'equipment_id',
         'subject',
-        'body'
+        'body',
     ];
 
-    public function user(): BelongsTo
+    public function equipment()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Equipment::class);
     }
 
 }

@@ -1,5 +1,9 @@
 @import '@fortawesome/fontawesome-free/css/all.css';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .topo{
 	background-color: #006400;
 	padding: 10px;
@@ -152,9 +156,9 @@ AÇÕES DELETAR
 	text-decoration:none;
 }
 /* -----------------------------------------------------------------------------
-FECHAR
+BOTÃO MODAL GERAL
 ----------------------------------------------------------------------------- */
-.fechar_texto:link, .fechar_texto:link:visited {
+.botaoModal:link, .botaoModal:link:visited {
 	background-image: linear-gradient(#e8f7ec, #a8e1b6);
 	color:#000000;
     border: 1px solid #000;
@@ -163,7 +167,7 @@ FECHAR
 	text-decoration:none;
     padding: 3px;
 }
-.fechar_texto:hover {
+.botaoModal:hover {
 	background-color: #000000;
 	color:#037E45;
 	border: 1px solid #000;

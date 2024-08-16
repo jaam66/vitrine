@@ -7,7 +7,7 @@
     {{-- ------------------------------------------------------------------------------------- --}}
     @csrf()
     <div>
-        <label for="name">Nome*:</label>
+        <label class="px-2" for="name">Nome*:</label>
         <input type="text" placeholder="Nome" name="name" value="{{ $user->name ?? old('name') }}"
         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
         @error('name')
@@ -15,7 +15,7 @@
         @enderror
     </div>
     <div>
-        <label for="email">E-mail*:</label>
+        <label class="px-2" for="email">E-mail*:</label>
         <input type="text" placeholder="E-mail" name="email" value="{{ $user->email ?? old('email') }}"
         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
         @error('email')
@@ -23,7 +23,7 @@
         @enderror
     </div>
     <div>
-        <label for="admin">Administrador:</label>
+        <label class="px-2" for="admin">Administrador:</label>
         <select name="admin" id="admin" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
             <?php
             if(isset($user)){
@@ -49,7 +49,7 @@
         @enderror
     </div>
     <div>
-        <label for="password">Senha*:</label>
+        <label class="px-2" for="password">Senha*:</label>
         <input type="password" placeholder="Senha" name="password" value=""
         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
         @error('password')
