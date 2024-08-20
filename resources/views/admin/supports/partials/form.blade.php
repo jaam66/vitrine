@@ -26,12 +26,19 @@
     <div>
         <label  class="px-2"for="equipamento">Equipamento: </label>
         <select name="equipment_id" id="equipment_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+            <?php
+            if(!isset($support->equipment_id)){
+                ?>
+                <option value="" selected>Escolha um esquipamento</option>
+                <?php
+            }
+            ?>
             @foreach($equipments as $equipment)
                 <?php
-                if($support->equipment_id == $equipment->id){
-                ?>
-                <option value="{{ $equipment->id }}" selected>{{ $equipment->description }}</option>
-                <?php
+                if(isset($support->equipment_id) AND ($support->equipment_id == $equipment->id)){
+                    ?>
+                    <option value="{{ $equipment->id }}" selected>{{ $equipment->description }}</option>
+                    <?php
                 }
                 else{
                     ?>

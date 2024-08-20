@@ -67,8 +67,39 @@
                                 <a href="{{ route('usuario.edit', [$user->id, 'page' => $users->currentPage()]) }}" class="acoes">
                                     Editar
                                 </a>
+                                <x-modal name="modalDelete{{ $user->id }}">
+                                    <div class="p-0" >
+                                        <div class="bg-[#006400] color-[#fff] text-xl p-4">
+                                            <h3 class="text-[#ffffff]">Deletar </h3> 
+                                        </div>
+                                        <div class="text-lg p-3  max-h-96 overflow-y-auto">
+                                            Nome: {{ $user->name }}
+                                            <br>
+                                            E-mail: {{ $user->email }}
+                                            <br><br>
+                                            Deseja deletar este usuário?
+                                            <hr>
+                                        </div>
+                                        <div class="flex flex-row justify-between px-5">
+                                            <div class="text-center py-2">
+                                                <a href="" class="botaoModal">
+                                                    Fechar
+                                                </a>
+                                            </div>
+                                            <div class="text-center py-2">
+                                                <form method="POST" action="{{ route('usuario.destroy', $user->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <a href="" class="botaoModal" onclick="event.preventDefault(); this.closest('form').submit();">
+                                                        Deletar
+                                                    </a>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </x-modal>
                                 &nbsp;
-                                <a href="{{ route('usuario.destroy', $user->id) }}" class="acoes_deletar">
+                                <a href="#" x-data x-on:click="$dispatch('open-modal','modalDelete{{ $user->id }}')" class="acoes_deletar">
                                     Deletar
                                 </a>
                             </td>

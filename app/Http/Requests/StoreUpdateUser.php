@@ -33,6 +33,10 @@ class StoreUpdateUser extends FormRequest
             'password' => [
                 'required',
                 'min:8',
+            ],
+            'password_confirm' => [
+                'required',
+                'min:8',
             ]
         ];
         if ($this->method() === 'PUT') {

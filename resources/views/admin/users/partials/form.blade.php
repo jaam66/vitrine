@@ -16,8 +16,9 @@
     </div>
     <div>
         <label class="px-2" for="email">E-mail*:</label>
-        <input type="text" placeholder="E-mail" name="email" value="{{ $user->email ?? old('email') }}"
+        <input id="email" type="text" placeholder="E-mail" name="email" value="{{ $user->email ?? old('email') }}"  onblur="validarEmail();"  
         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        <div id="mensagem_email" class="text-red-500"></div>
         @error('email')
             <div class="text-red-500">{{ $message }}</div>
         @enderror
@@ -50,9 +51,18 @@
     </div>
     <div>
         <label class="px-2" for="password">Senha*:</label>
-        <input type="password" placeholder="Senha" name="password" value=""
+        <input id="password" type="password" placeholder="Senha" name="password" value="" 
         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        <div id="mensagem_password" class="text-red-500"></div>
         @error('password')
+            <div class="text-red-500">{{ $message }}</div>
+        @enderror
+    </div>
+    <div>
+        <label class="px-2" for="password_confirm">Confirme a Senha*:</label>
+        <input id="password_confirm"  type="password" placeholder="Confirmar Senha" name="password_confirm" value="" onblur="validarSenha();" 
+        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        @error('password_confirm')
             <div class="text-red-500">{{ $message }}</div>
         @enderror
     </div>

@@ -65,21 +65,24 @@ class SupportController extends Controller
         if(!$support = Support::find($id)){
             return back();
         }
-
-        // return view('admin/supports/show', compact('support', 'teste'));
-        return view('admin/supports/show', compact('support'));
+        $equipments = Equipment::all();
+        // dd($equipments);
+        return view('admin/supports/show', compact('support','equipments'));
     }
-
     // função 'CREATE' redireciona para a página 'create'
     public function create()
     {
-         return view('admin/supports/create');
-    }   
+        $equipments = Equipment::all();
+        // dd($equipments);
+        return view('admin/supports/create', compact('equipments'));
+    } 
     // função 'STORE' salva os dados no BD
     public function store(StoreUpdateSupport $request, Support $support)
     {
+        // $os = geraOs();
         $data = $request->validated();
-        // dd($data);
+        $data['os'] = geraOs();
+        dd($data);
         $support->create($data);
         return redirect()->route('suporte.index');
 

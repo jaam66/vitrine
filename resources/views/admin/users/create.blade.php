@@ -14,7 +14,7 @@
 
 @section('content')
 {{-- ------------------------------------------------------------------------------------- --}}
-    <form action="{{ route('usuario.store') }}" method="POST">
+    <form action="{{ route('usuario.store') }}" method="POST" onkeydown="if(event.key === 'Enter'){ event.preventDefault(); }">
         @include('admin.users.partials.form')
     </form>
 {{-- ------------------------------------------------------------------------------------- --}}

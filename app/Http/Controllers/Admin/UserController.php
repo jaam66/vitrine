@@ -62,6 +62,7 @@ class UserController extends Controller
     {
         $data = $request->validated();
         $user_name = getUserName($data['name']);
+        
         $senha = $data['password'];
         // ----------------------------------------------------
         // dd($data);
@@ -113,7 +114,7 @@ class UserController extends Controller
         if(!$user = User::find($id)){
             return back();
         }
-        dd($user);
+        // dd($user);
         $user->delete();
         return redirect()->route('usuario.index');
     }

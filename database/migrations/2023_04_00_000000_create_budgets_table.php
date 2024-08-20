@@ -1,6 +1,5 @@
 <?php
 
-use App\Enums\SupportStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,17 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('supports', function (Blueprint $table) {
+        Schema::create('budgets', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('sender');
-            $table->uuid('equipment_id')->index();
-            $table->string('subject');
-            $table->text('body');
+            $table->uuid('support_id')->index();
+            $table->string('arquivo');
             $table->timestamps();
 
-            $table->foreign('equipment_id')
+            $table->foreign('support_id')
                 ->references('id')
-                ->on('equipments');
+                ->on('supports');
         });
     }
 
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('supports');
+        Schema::dropIfExists('budgets');
     }
 };

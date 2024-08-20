@@ -54,6 +54,21 @@ if (!function_exists('getInitials')) {
     }
 }
 
+if (!function_exists('geraOs')) {
+    function geraOs()
+    {
+        $data = date('dmyhis');
+        //	echo $data;
+            $var = sprintf('%03X', mt_rand(0, 0xFFF));
+            // echo "<br>";
+        //	$codigo = $var."_".$data;
+            $codigo = "OS_".$var.$data;
+            // echo "<br>";
+            // echo $codigo;
+        return $codigo;
+    }
+}
+
 if (!function_exists('getUserName')) {
     function getUserName($name)
     {
@@ -62,6 +77,17 @@ if (!function_exists('getUserName')) {
         $nomes = explode(' ', $nome_formatado);
         $user_name = $nomes[0]."_".$nomes[1];
         return $user_name;
+    }
+}
+
+if (!function_exists('confereSenha')) {
+    function confereSenha($password,$password_confirm)
+    {
+        $iguais = FALSE;
+        if($password == $password_confirm){
+            $iguais = TRUE;
+        }
+        return $iguais;
     }
 }
 
