@@ -1,5 +1,5 @@
 {{-- --------------------------------------------------------------------------------------------------------- --}}
-{{-- DÚVIDAS CONTENT (CONTEÚDO) --}}
+{{-- OS CONTENT (CONTEÚDO) --}}
 {{-- --------------------------------------------------------------------------------------------------------- --}}
 <div class="flex flex-col mt-2 my-4">
     <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -8,16 +8,20 @@
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-[#797979] text-[#FFFFFF]">
                         <tr>
+                            <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right">
+                                OS
+                            </th>
+
                             <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right">
                                 Remetente
                             </th>
 
                             <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right">
-                                Equipamento
+                                Assunto
                             </th>
 
                             <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right">
-                                Assunto
+                                Equipamento
                             </th>
 
                             <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right">
@@ -36,22 +40,28 @@
                         {{-- INICIO DA TABELA --}}
                         <tr class="hover:bg-green-100 odd:bg-white even:bg-gray-100">
                             {{-- -------------- --}}
+                            {{-- COLUNA OS --}}
+                            {{-- -------------- --}}
+                            <td class="px-4 py-2 text-sm font-medium whitespace-nowrap">
+                                {{ $support->os }}
+                            </td>
+                            {{-- -------------- --}}
                             {{-- COLUNA SENDER --}}
                             {{-- -------------- --}}
                             <td class="px-4 py-2 text-sm font-medium whitespace-nowrap">
                                 {{ $support->sender }}
                             </td>
                             {{-- -------------- --}}
-                            {{-- COLUNA EQUIPMENTS --}}
-                            {{-- -------------- --}}
-                            <td class="px-4 py-2 text-sm font-medium whitespace-nowrap">
-                                {{ $support->description }}
-                            </td>
-                            {{-- -------------- --}}
                             {{-- COLUNA SUBJECT --}}
                             {{-- -------------- --}}
                             <td class="px-4 py-2 text-sm font-medium whitespace-nowrap">
                                 {{ $support->subject }}
+                            </td>
+                            {{-- -------------- --}}
+                            {{-- COLUNA EQUIPMENTS --}}
+                            {{-- -------------- --}}
+                            <td class="px-4 py-2 text-sm font-medium whitespace-nowrap">
+                                {{ $support->description }}
                             </td>
                             {{-- ------------- --}}
                             {{-- COLUNA DÚVIDA --}}
@@ -60,7 +70,7 @@
                                 <x-modal name="modalTexto{{ $support->id }}">
                                     <div class="p-0" >
                                         <div class="bg-[#006400] color-[#fff] text-xl p-4">
-                                            <h3 class="text-[#ffffff]">DÚVIDA DE: {{ $support->name }}</h3> 
+                                            <h3 class="text-[#ffffff]">DÚVIDA DE: {{ $support->sender }}</h3> 
                                         </div>
                                         <div class="text-2xl p-3  max-h-96 overflow-y-auto">
                                             {{ $support->body }}
@@ -92,7 +102,7 @@
                                             <h3 class="text-[#ffffff]">Deletar </h3> 
                                         </div>
                                         <div class="text-lg p-3  max-h-96 overflow-y-auto">
-                                            Remetente: {{ $support->sender }}
+                                            OS: {{ $support->os }}
                                             <br>
                                             Equipamento: {{ $support->description }}
                                             <br>

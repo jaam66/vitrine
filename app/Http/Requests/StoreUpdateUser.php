@@ -46,7 +46,13 @@ class StoreUpdateUser extends FormRequest
                 'max:255',
                 Rule::unique('users')->ignore($this->id),
             ];
-            $rules['password'] = [
+            $rules['user_name'] = [
+                'nullable',
+            ];            $rules['password'] = [
+                'nullable',
+                'min:8',
+            ];
+            $rules['password_confirm'] = [
                 'nullable',
                 'min:8',
             ];

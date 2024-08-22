@@ -1,9 +1,16 @@
 {{-- --------------------------------------------------------------------------------------------------------- --}}
-{{-- DÚVIDA FORM  --}}
+{{-- OS FORM  --}}
 {{-- --------------------------------------------------------------------------------------------------------- --}}
 
 {{-- <x-alert/> --}}
 {{-- {{ dd($support); }} --}}
+
+@php
+    $obrigatorio = "*";
+    if($form_crud == "editar"){
+        $obrigatorio = "";
+    }
+@endphp
 <div class="moldura_corpo">
     {{-- ------------------------------------------------------------------------------------- --}}
     @csrf()
@@ -24,7 +31,7 @@
         @enderror
     </div>
     <div>
-        <label  class="px-2"for="equipamento">Equipamento: </label>
+        <label  class="px-2"for="equipamento">Equipamento: {{ $obrigatorio }}</label>
         <select name="equipment_id" id="equipment_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
             <?php
             if(!isset($support->equipment_id)){
@@ -52,7 +59,7 @@
             <div class="text-red-500">{{ $message }}</div>
         @enderror
     </div>
-    <label class="px-2" for="duvida">Texto*:</label>
+    <label class="px-2" for="duvida">Texto {{ $obrigatorio }}:</label>
     <textarea name="body" cols="30" rows="5" placeholder="Descrição" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">{{ $support->body ?? old('body') }}</textarea>
     <div class="text-center w-full">
         <button type="submit" class="enviarForm">

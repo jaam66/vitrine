@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('budgets', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->uuid('support_id')->index();
+            $table->id();
+            $table->unsignedBigInteger('support_id');
             $table->string('arquivo');
             $table->timestamps();
 

@@ -1,6 +1,3 @@
-{{-- --------------------------------------------------------------------------------------------------------- --}}
-{{-- OS SHOW (DETALHAR)  --}}
-{{-- --------------------------------------------------------------------------------------------------------- --}}
 @extends('admin.layouts.app')
 
 @section('title', 'Detalhes do Suporte')
@@ -31,7 +28,7 @@
         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
     </div>
     <div>
-        <label for="assunto">Texto*:</label>
+        <label for="assunto">Texto:</label>
         <textarea name="body" cols="30" rows="5" placeholder="Descrição" disabled="disblede" 
         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">{{ $support->body }}</textarea>
     </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\{EquipmentController};
 use App\Http\Controllers\Admin\{SupportController};
 use App\Http\Controllers\Admin\{UserController};
 use App\Http\Controllers\ProfileController;
@@ -44,10 +45,8 @@ Route::middleware('auth')->group(function () {
         return view('index');
     })->name('index');
 // -----------------------------------------------------------------------------------------
-
-
 // -----------------------------------------------------------------------------------------
- // SUPORTE
+ // SUPORTE (OS)
 // -----------------------------------------------------------------------------------------
     Route::get('/suporte', [SupportController::class, 'index'])->name('suporte.index');
 
@@ -62,6 +61,13 @@ Route::middleware('auth')->group(function () {
     Route::put('/suporte/{id}', [SupportController::class, 'update'])->name('suporte.update');
 
     Route::delete('/suporte/{id}', [SupportController::class, 'destroy'])->name('suporte.destroy');
+
+// -----------------------------------------------------------------------------------------
+ // EQUIPAMENTO
+// -----------------------------------------------------------------------------------------
+    Route::get('/equipamento', [EquipmentController::class, 'index'])->name('equipamento.index');
+
+    Route::get('/equipamento/create', [EquipmentController::class, 'create'])->name('equipamento.create');
 
 // -----------------------------------------------------------------------------------------
  // USUARIO

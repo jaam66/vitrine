@@ -13,14 +13,18 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+// ----------------------------------------------------------------------
+// ##### FUNÇÃO 'INDEX' MOSTRA OS DADOS (INDEX.BLADE.PHP INCLUDE -> CONTENT.BLADE.PHP)
+// ----------------------------------------------------------------------
     public function index(Request $request)
     {
         // dd($request);
         $filter = $request->get('filter', '');
         if($filter){
             $users = DB::table('laravel.users')
-                            ->select('u.name', 'users.*')
+                            ->select('users.*')
                             ->where('name', 'like', "%{$filter}%")
+                            ->orwhere('email', 'like', "%{$filter}%")
                             ->orderBy('name','asc');
             // --------------------------------------------------------------
             // dd($users);
@@ -41,8 +45,9 @@ class UserController extends Controller
         // ------------------------------------------------------------------
         return view('admin/users/index', compact('users'));
     }
-
-    // função 'SHOW' mostra os dados
+// ----------------------------------------------------------------------
+// ##### FUNÇÃO 'SHOW' MOSTRA OS DADOS (SHOW.BLADE.PHP)
+// ----------------------------------------------------------------------
     public function show(string|int $id)
     {
         $user = user::find($id);
@@ -52,33 +57,46 @@ class UserController extends Controller
 
         return view('admin/users/show', compact('user'));
     }
-    // função 'CREATE' redireciona para a página 'create'
+// ----------------------------------------------------------------------
+// ##### FUNÇÃO 'CREATE' REDIRECIONA PARA A PÁGINA 'CREATE.BLADE.PHP INCLUDE -> FORM.BLADE.PHP'
+// ----------------------------------------------------------------------
     public function create()
     {
          return view('admin/users/create');
     }
-    // função 'STORE' salva os dados no BD
+// ----------------------------------------------------------------------
+// ##### FUNÇÃO 'STORE' SALVA (CADASTRA) OS DADOS NO DB
+// ----------------------------------------------------------------------
     public function store(StoreUpdateUser $request, User $user)
     {
-        $data = $request->validated();
-        $user_name = getUserName($data['name']);
-        
-        $senha = $data['password'];
         // ----------------------------------------------------
+        // ----------------------------------------------------
+        $data = $request->validated();
         // dd($data);
+        // ----------------------------------------------------
+        // ----------------------------------------------------
+        unset($data['password_confirm']);
+        // ----------------------------------------------------
+        // ----------------------------------------------------
+        $user_name = getUserName($data['name']);
+        $data['user_name'] = $user_name;
+        // ----------------------------------------------------
+        // ----------------------------------------------------
+        $senha = $data['password'];
+        $data['password'] = Hash::make($senha);
+        // ----------------------------------------------------
         // dd($user_name);
         // dd($request);
         // dd($user);
-        // ----------------------------------------------------
-        $data['user_name'] = $user_name;
-        $data['password'] = Hash::make($senha);
         // dd($data);
-  
+        // ----------------------------------------------------
         $user->create($data);
-        
+        // ----------------------------------------------------
         return redirect()->route('usuario.index');
-
     }
+// ----------------------------------------------------------------------
+// ##### FUNÇÃO 'EDIT' REDIRECIONA PARA A PÁGINA 'EDIT.BLADE.PHP INCLUDE -> FORM.BLADE.PHP'
+// ----------------------------------------------------------------------
     public function edit(User $user, string|int $id)
     {
         if(!$user = $user->where('id', $id)->first()){
@@ -86,7 +104,9 @@ class UserController extends Controller
         }
         return view('admin/users/edit', compact('user'));
     }
-
+// ----------------------------------------------------------------------
+// ##### FUNÇÃO 'UPDATE' SALVA (ALTERA) OS DADOS NO DB
+// ----------------------------------------------------------------------
     public function update(StoreUpdateUser $request, User $user, string|int $id)
     {
         // ------------------------------------------------------------------------
@@ -96,7 +116,9 @@ class UserController extends Controller
         }
         // ------------------------------------------------------------------------
         $data = $request->validated();
+        // ------------------------------------------------------------------------
         // dd($data);
+        // ------------------------------------------------------------------------
         $page = $request->page;
         if($data['password']){
             $data['password'] = Hash::make($data['password']);
@@ -104,12 +126,15 @@ class UserController extends Controller
         else{
             unset($data['password']);
         }
+        // ------------------------------------------------------------------------
         // dd($data);
+        // ------------------------------------------------------------------------
         $user->update($data);
         return redirect()->route('usuario.index', ['page' => $request->input('page', 1)]);
     }
-
-    // função 'DESTROY' deleta os dados no BD
+// ----------------------------------------------------------------------
+// ##### FUNÇÃO 'DESTROY' DELETA OS DADOS NO DB
+// ----------------------------------------------------------------------
     public function destroy(string|int $id){
         if(!$user = User::find($id)){
             return back();

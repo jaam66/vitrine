@@ -62,7 +62,7 @@ if (!function_exists('geraOs')) {
             $var = sprintf('%03X', mt_rand(0, 0xFFF));
             // echo "<br>";
         //	$codigo = $var."_".$data;
-            $codigo = "OS_".$var.$data;
+            $codigo = "OS-".$var.$data;
             // echo "<br>";
             // echo $codigo;
         return $codigo;

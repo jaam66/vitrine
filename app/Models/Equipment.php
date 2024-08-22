@@ -15,7 +15,9 @@ class Equipment extends Model
     protected $fillable = [
         'description',
     ];
-
+    
+    // USADO PARA QUE POSSA O CRUD SUPPORTS
+    // POSSA TER ACESSO A TABELA EQUIPMENTS
     public function supports(): HasMany
     {
         return $this->hasMany(Support::class);

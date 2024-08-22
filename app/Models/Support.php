@@ -12,8 +12,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Support extends Model
 {
     use HasFactory;
-
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
+        'os',
         'sender',
         'equipment_id',
         'subject',

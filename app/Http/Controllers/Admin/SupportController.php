@@ -17,6 +17,9 @@ use function Laravel\Prompts\select;
 //  -> chama os métodos"
 class SupportController extends Controller
 {
+// ----------------------------------------------------------------------
+// ##### FUNÇÃO 'INDEX' MOSTRA OS DADOS (INDEX.BLADE.PHP INCLUDE -> CONTENT.BLADE.PHP)
+// ----------------------------------------------------------------------
     public function index(Request $request)
     {
         // dd($request);
@@ -27,22 +30,23 @@ class SupportController extends Controller
             // $supports = Support::where('subject', 'like', "%{$filter}%")
             //                 ->orWhere('body', 'like', "%{$filter}%");
             // --------------------------------------------------------------
+            // $filter = normalize($filter);
+            // $filter = lower($filter);
+            // dd($filter);
             $supports = DB::table('laravel.supports')
-                            ->select('u.name', 'e.description', 'supports.*')
-                            ->join('laravel.users AS u', 'supports.user_id', '=', 'u.id')
-                            ->join('laravel.equipments AS e', 'supports.equipment_id', '=', 'e.id')
-                            ->where('subject', 'like', "%{$filter}%")
-                            ->orWhere('body', 'like', "%{$filter}%")
-                            ->orWhere('u.name', 'like', "%{$filter}%")
-                            ->orWhere('e.description', 'like', "%{$filter}%")
-                            ->orderBy('id','desc');
+                ->select('e.description', 'supports.*')
+                ->join('laravel.equipments AS e', 'supports.equipment_id', '=', 'e.id')
+                ->orWhere(lower('sender'), 'like', lower("%{$filter}%"))
+                ->orwhere(lower('subject'), 'like', lower("%{$filter}%"))
+                ->orWhere(lower('body'), 'like', lower("%{$filter}%"))
+                ->orWhere(lower('e.description'), 'like', lower("%{$filter}%"))
+                ->orderBy('created_at','desc');
         }
         else{
             $supports = DB::table('laravel.supports')
-                            ->select('u.name', 'e.description', 'supports.*')
-                            ->join('laravel.users AS u', 'supports.equipment_id', '=', 'u.id')
-                            ->join('laravel.equipments AS e', 'supports.equipment_id', '=', 'e.id')
-                            ->orderBy('created_at','desc');
+                ->select('e.description', 'supports.*')
+                ->join('laravel.equipments AS e', 'supports.equipment_id', '=', 'e.id')
+                ->orderBy('created_at','desc');
             // --------------------------------------------------------------
             // dd($supports);
             // --------------------------------------------------------------
@@ -53,8 +57,9 @@ class SupportController extends Controller
         // ------------------------------------------------------------------
         return view('admin/supports/index', compact('supports'));
     }
-
-    // função 'SHOW' mostra os dados
+// ----------------------------------------------------------------------
+// ##### FUNÇÃO 'SHOW' MOSTRA OS DADOS (SHOW.BLADE.PHP)
+// ----------------------------------------------------------------------
     public function show(string|int $id)
     {
         // Support::find($id);
@@ -65,29 +70,37 @@ class SupportController extends Controller
         if(!$support = Support::find($id)){
             return back();
         }
-        $equipments = Equipment::all();
-        // dd($equipments);
-        return view('admin/supports/show', compact('support','equipments'));
+        $equipment = Equipment::find($support->equipment_id);
+        // dd($support->equipment_id);
+        // dd($support->os);
+        // dd($support);
+        // dd($equipment);
+        return view('admin/supports/show', compact('support','equipment'));
     }
-    // função 'CREATE' redireciona para a página 'create'
+// ----------------------------------------------------------------------
+// ##### FUNÇÃO 'CREATE' REDIRECIONA PARA A PÁGINA 'CREATE.BLADE.PHP INCLUDE -> FORM.BLADE.PHP'
+// ----------------------------------------------------------------------
     public function create()
     {
         $equipments = Equipment::all();
         // dd($equipments);
         return view('admin/supports/create', compact('equipments'));
-    } 
-    // função 'STORE' salva os dados no BD
+    }
+// ----------------------------------------------------------------------
+// ##### FUNÇÃO 'STORE' SALVA (CADASTRA) OS DADOS NO DB
+// ----------------------------------------------------------------------
     public function store(StoreUpdateSupport $request, Support $support)
     {
         // $os = geraOs();
         $data = $request->validated();
         $data['os'] = geraOs();
-        dd($data);
+        // dd($data);
         $support->create($data);
         return redirect()->route('suporte.index');
-
     }
-    // função 'EDIT' redireciona para a página 'edit'
+// ----------------------------------------------------------------------
+// ##### FUNÇÃO 'EDIT' REDIRECIONA PARA A PÁGINA 'EDIT.BLADE.PHP INCLUDE -> FORM.BLADE.PHP'
+// ----------------------------------------------------------------------
     public function edit(Support $support, string|int $id)
     {
         if(!$support = $support->where('id', $id)->first()){
@@ -96,8 +109,9 @@ class SupportController extends Controller
         $equipments = Equipment::all();
         return view('admin/supports/edit', compact('support','equipments'));
     }
-
-    // função 'UPDATE' atualiza os dados no BD
+// ----------------------------------------------------------------------
+// ##### FUNÇÃO 'UPDATE' SALVA (ALTERA) OS DADOS NO DB
+// ----------------------------------------------------------------------
     public function update(StoreUpdateSupport $request, Support $support, string|int $id)
     {
         // $support->id = $request->id;
@@ -118,8 +132,9 @@ class SupportController extends Controller
         // return redirect()->route('suporte.index');
         return redirect()->route('suporte.index', ['page' => $request->input('page', 1)]);
     }
-
-    // função 'DESTROY' deleta os dados no BD
+// ----------------------------------------------------------------------
+// ##### FUNÇÃO 'DESTROY' DELETA OS DADOS NO DB
+// ----------------------------------------------------------------------
     public function destroy(string|int $id){
         if(!$support = Support::find($id)){
             return back();

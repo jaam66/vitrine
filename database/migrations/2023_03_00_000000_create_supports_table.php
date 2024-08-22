@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('supports', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('os')->default('OS_000000000000000');
             $table->string('sender');
-            $table->uuid('equipment_id')->index();
+            $table->unsignedBigInteger('equipment_id');
             $table->string('subject');
             $table->text('body');
             $table->timestamps();
