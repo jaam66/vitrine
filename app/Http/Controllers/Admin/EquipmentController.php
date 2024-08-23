@@ -18,7 +18,7 @@ class EquipmentController extends Controller
         // dd($request);
         $filter = $request->get('filter', '');
         if($filter){
-            $equipments = DB::table('laravel.Equipments')
+            $equipments = DB::table('laravel.equipments')
                 ->select('equipments.*')
                 ->orWhere(lower('description'), 'like', lower("%{$filter}%"))
                 ->orderBy('description','desc');
@@ -38,7 +38,7 @@ class EquipmentController extends Controller
         return view('admin/equipments/index', compact('equipments'));
     }
 
-    // ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
 // ##### FUNÇÃO 'CREATE' REDIRECIONA PARA A PÁGINA 'CREATE.BLADE.PHP INCLUDE -> FORM.BLADE.PHP'
 // ----------------------------------------------------------------------
     public function create()

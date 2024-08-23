@@ -7,7 +7,7 @@
 
 @section('barra')
     {{-- <h1>Detalhes do Suporte {{ $support->id }}</h1> --}}
-    <div class="barra flex justify-between p-4">
+    <div class="div_section_barra">
         <div><h1>Usuário</h1></div>
         <div><a href="{{  route('usuario.index', ['page' => request()->page]) }}" class="voltar"><i class="fa-solid fa-arrow-left"></i> Voltar</a></div>
     </div>
@@ -17,21 +17,21 @@
     {{-- ------------------------------------------------------------------------------------- --}}
 
     <div>
-        <label for="nome">Nome:</label>
+        <label class="content_show_label" for="nome">Nome:</label>
         <input name="name" type="text" value="{{ $user->name }}" disabled="disablede"
-        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        class="content_show_input">
     </div>
     <div>
-        <label for="email">E-mail:</label>
+        <label class="content_show_label" for="email">E-mail:</label>
         <input name="email" type="text" value="{{ $user->email }}" disabled="disablede"
-        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        class="content_show_input">
     </div>    <div>
-        <label for="user_nome">Nome Usuário:</label>
+        <label class="content_show_label" for="user_nome">Nome Usuário:</label>
         <input name="user_name" type="text" value="{{ $user->user_name }}" disabled="disablede"
-        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        class="content_show_input">
     </div>    <div>
-        <label for="admin">Administrador:</label>
+        <label class="content_show_label" for="admin">Administrador:</label>
         <input name="admin" type="text" value="{{ getAdmin($user->admin) }}" disabled="disablede"
-        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        class="content_show_input">
     </div>
 @endsection

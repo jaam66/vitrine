@@ -1,36 +1,36 @@
 {{-- --------------------------------------------------------------------------------------------------------- --}}
 {{-- EQUIPAMENTO CONTENT (CONTEÚDO) --}}
 {{-- --------------------------------------------------------------------------------------------------------- --}}
-<div class="flex flex-col mt-2 my-4">
-    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-            <div class="overflow-hidden border border-gray-200 md:rounded-lg">
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-[#797979] text-[#FFFFFF]">
+<div class="content_div01">
+    <div class="content_div02">
+        <div class="content_div03">
+            <div class="content_div04">
+                <table class="content_table">
+                    <thead class="content_thead">
                         <tr>
-                            <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right">
+                            <th scope="col" class="content_cabecalho">
                                 Descrição
                             </th>
 
-                            <th scope="col" class="relative py-3.5 px-4">
+                            <th scope="col" class="content_cabecalho acoes_cabecalho w-1/6">
                                 Ações
                             </th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
+                    <tbody class="content_tbody">
                         @foreach ($equipments->items() as $equipment)
                         {{-- {{ $equipments->currentPage() }} --}}
                         {{-- {{ dd($support); }} --}}
                         {{-- INICIO DA TABELA --}}
-                        <tr class="hover:bg-green-100 odd:bg-white even:bg-gray-100">
+                        <tr class="content_tbody_tr">
                             {{-- -------------- --}}
                             {{-- COLUNA DESCRIÇÃO --}}
                             {{-- -------------- --}}
-                            <td class="px-4 py-2 text-sm font-medium whitespace-nowrap">
+                            <td class="content_tbody_coluna">
                                 {{ $equipment->description }}
                             </td>
                             {{-- COLUNA VER --}}
-                            <td class="flex justify-center px-4 py-2 text-sm whitespace-nowrap">
+                            <td class="content_coluna_acoes">
                                 <a href="{{ route('suporte.show', [$equipment->id, 'page' => $equipments->currentPage()]) }}" class="acoes text-center">
                                     Detalhes
                                 </a>
@@ -40,10 +40,10 @@
                                 </a>
                                 <x-modal name="modalDelete{{ $equipment->id }}">
                                     <div class="p-0" >
-                                        <div class="bg-[#006400] color-[#fff] text-xl p-4">
+                                        <div class="xmodal_div01">
                                             <h3 class="text-[#ffffff]">Deletar </h3> 
                                         </div>
-                                        <div class="text-lg p-3  max-h-96 overflow-y-auto">
+                                        <div class="xmodal_div02">
                                             OS: {{ $equipment->description }}
                                             <br>
                                             Equipamento: {{ $equipment->description }}
@@ -51,7 +51,7 @@
                                             Deseja deletar esta dúvida?
                                             <hr>
                                         </div>
-                                        <div class="flex flex-row justify-between px-5">
+                                        <div class="xmodal_div_deletar">
                                             <div class="text-center py-2">
                                                 <a href="" class="botaoModal">
                                                     Fechar

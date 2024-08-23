@@ -5,235 +5,352 @@
 @tailwind utilities;
 
 .topo{
-	background-color: #006400;
-	padding: 10px;
-	text-align: center;
+	background-color: #006400; /** bg-[#000000] **/
+	padding: 10px; /** p-**/
+	text-align: center;  /** text-center **/
 }
 .logo{
-	width: 80%;
-	padding: 10px;
-	text-align: center;
-	margin: auto;
+	width: 80%; /** w- **/
+	padding: 10px; /** p- **/
+	text-align: center; /** text-center **/
+	margin: 0 auto; /** m-auto **/
 }
-.barra{
-    background-image: linear-gradient(#e8f7ec, #a8e1b6);
-}
-
 .descricao_sistema{
-	color: #FFFFFF;
-	font-size: 25px;
-	font-weight: bold;
+	color: #FFFFFF; /** text-[#ffffff] **/
+	font-size: 25px; /** text-2xl **/
+	font-weight: bold; /** font-bold **/
 }
 .moldura_corpo{
-	width: 100%;
-	padding: 15px 0px 10px 0px;;
-	border: 1px #808080 solid;
+	width: 100%; /** w-full **/
+	padding: 15px 0px 10px 0px; /** w- **/
+	border: 1px #808080 solid; /**  border-2 border-[#ff0000] **/
 }
 /* -----------------------------------------------------------------------------
-RODAPÉ
+ESQUECEU SENHA (BOTÃO)
 ----------------------------------------------------------------------------- */
-.rodape {
-	background-image:url(../../public/images/fundo_rodape.jpg);
-	height:85px;
-	text-align:center;
+.esqueceu, .esqueceu:visited {
+	width: auto;
+	background-color: #037E45; /** bg-[#000000] **/
+	color:#ffffff; /** text-black || text-[#000000] **/
+	font-weight:normal; /** font-normal **/
+	border: 1px #2F4F4F solid; /**  border-2 border-[#ff0000] **/
+	border-radius: 20px; /** rounded-2xl (16px) **/
+	text-align: center;  /** text-center **/
+	text-decoration:none; /** no-underline **/
+	padding: 5px 10px 5px 10px; /** p- **/
 }
-/* -----------------------------------------------------------------------------
-TABELAS
------------------------------------------------------------------------------ */
-.tabela_show {
-    background-color: transparent;
-    width: 50%;
-	margin: 0 auto;
-	border-collapse: separate;
-	border-spacing: 3px;
-}
-
-.tabela_show tr{
-	padding:3px;
-}
-
-.tabela_show td{
-	padding:3px;
-}
-.alert_erro{
-	background-color: #F08080;
-	border: 1px #037E45 solid;
-	padding: 5px;
-}
-/* cinza */
-.tabela_show tbody td:first-child {
-    width: 50%;
-	text-align: right;
-	background-color: #F0F0F0;
-	border: 1px solid;
-    min-width: 100px;
-}
-/* verde */
-.tabela_show tbody td:first-child + td {
-	text-align: left;
-	background-color: #B7E8C5;
-	border: 1px solid;
-	min-width: 100px;
-	padding: 3px;
-}
-
-/* -----------------------------------------------------------------------------
-MENU (LINKS)
------------------------------------------------------------------------------ */
-.menu:link, .menu:visited {
-	color:#000000;
-	font-weight:normal;
-	text-decoration:none;
-}
-.menu:hover {
-	color:#808080;
-	font-weight:normal;
-	text-decoration:none;
-}
-/* -----------------------------------------------------------------------------
-TOTAL CADASTRADO
------------------------------------------------------------------------------ */
-.total_cadastrado {
-	background-color: #000000;
-	font-size: 12px;;
-	color: #ffffff;
-	padding: 4px 10px 4px 10px;
-}
-/* -----------------------------------------------------------------------------
-VOLTAR (LINK)
------------------------------------------------------------------------------ */
-.voltar:link, .voltar:visited {
-	color:#037E45;
-	font-weight:normal;
-	text-decoration:none;
-}
-.voltar:hover {
-	color:#FFFFFF;
-	font-weight:normal;
-	text-decoration:none;
-}
-/* -----------------------------------------------------------------------------
-AÇÕES (LINK)
------------------------------------------------------------------------------ */
-.acoes:link, .acoes:visited {
-	color:#000000;
-	font-weight:normal;
-    border: 1px solid #ccc;
-	text-decoration:none;
-    padding: 3px;
-}
-.acoes:hover {
-    background-color: #eaeaea;
-	color:#037E45;
-	font-weight:normal;
-	text-decoration:none;
-}
-/* -----------------------------------------------------------------------------
-AÇÕES VISUALIZAR TEXTO (LINK)
------------------------------------------------------------------------------ */
-.acoes_modal_texto:link, .acoes_modal_texto:link:visited {
-	background-color: transparent;
-	color:#000000;
-    border: 1px solid #000;
-	border-radius: 20px;
-	font-weight:normal;
-	text-decoration:none;
-    padding: 3px;
-}
-.acoes_modal_texto:hover {
-	background-color: #000000;
-	color:#fff;
-	border: 1px solid #000;
-	border-radius: 20px;
-	font-weight:normal;
-	text-decoration:none;
-}
-/* -----------------------------------------------------------------------------
-AÇÕES DELETAR
------------------------------------------------------------------------------ */
-.acoes_deletar:link, .acoes_deletar:visited {
-	color:#000000;
-	font-weight:normal;
-    border: 1px solid #ccc;
-	text-decoration:none;
-    padding: 3px;
-}
-.acoes_deletar:hover {
-    background-color: #F08080;
-	color:#000000;
-	font-weight:normal;
-	text-decoration:none;
-}
-/* -----------------------------------------------------------------------------
-BOTÃO MODAL GERAL
------------------------------------------------------------------------------ */
-.botaoModal:link, .botaoModal:link:visited {
-	background-image: linear-gradient(#e8f7ec, #a8e1b6);
-	color:#000000;
-    border: 1px solid #000;
-	border-radius: 20px;
-	font-weight:normal;
-	text-decoration:none;
-    padding: 3px;
-}
-.botaoModal:hover {
-	background-color: #000000;
-	color:#037E45;
-	border: 1px solid #000;
-	border-radius: 20px;
-	font-weight:normal;
-	text-decoration:none;
-}
-/* -----------------------------------------------------------------------------
-ENVIAR FORM (BOTÃO)
------------------------------------------------------------------------------ */
-.enviarForm, .enviarForm:visited {
-	width: 100px;
-	background-color: #037E45;
-	color:#ffffff;
-	font-weight:normal;
-	border-radius: 20px;
-	text-decoration:none;
-}
-.enviarForm:hover {
-	color:#ffffff;
-	font-weight:bold;
-	border: 1px #2F4F4F solid;
-	text-decoration:none;
+.esqueceu:hover {
+	color:#00FF7F; /** text-black || text-[#000000] **/
+	border: 1px #2F4F4F solid; /**  border-2 border-[#ff0000] **/
+	text-decoration:none; /** no-underline **/
 }
 /* -----------------------------------------------------------------------------
 LOGAR FORM (BOTÃO)
 ----------------------------------------------------------------------------- */
 .logar, .logar:visited {
 	width: auto;
-	background-color: #037E45;
-	color:#ffffff;
-	font-weight:normal;
-	border-radius: 15px;
-	text-decoration:none;
+	background-color: #037E45; /** bg-[#000000] **/
+	color:#ffffff; /** text-black || text-[#000000] **/
+	font-weight:normal; /** font-normal **/
+	border-radius: 15px; /** rounded-2xl (16px) **/
+	text-decoration:none; /** no-underline **/
 }
 .logar:hover {
-	background-color: #037E45 !important;
-	color:#00FF7F;
-	border: 1px #2F4F4F solid;
-	text-decoration:none;
+	background-color: #037E45 !important; /** bg-[#000000] **/
+	color:#00FF7F; /** text-black || text-[#000000] **/
+	border: 1px #2F4F4F solid; /**  border-2 border-[#ff0000] **/
+	text-decoration:none; /** no-underline **/
 }
 /* -----------------------------------------------------------------------------
-LOGAR FORM (BOTÃO)
+MENU PRINCIPAL (LINKS)
 ----------------------------------------------------------------------------- */
-.esqueceu, .esqueceu:visited {
-	width: auto;
-	background-color: #037E45;
-	color:#ffffff;
-	font-weight:normal;
-	border: 1px #2F4F4F solid;
-	border-radius: 20px;
-	text-align: center;
-	text-decoration:none;
-	padding: 5px 10px 5px 10px;
+.menu:link, .menu:visited {
+	color:#000000; /** text-[#000000] **/
+	font-weight:normal; /** font-normal **/
+	text-decoration:none; /** no-underline **/
 }
-.esqueceu:hover {
-	color:#00FF7F;
-	border: 1px #2F4F4F solid;
-	text-decoration:none;
+.menu:hover {
+	color:#808080; /** text-[#000000] **/
+	font-weight:normal; /** font-normal **/
+	text-decoration:none; /** no-underline **/
 }
+/* -----------------------------------------------------------------------------
+RODAPÉ
+----------------------------------------------------------------------------- */
+.rodape {
+	background-image:url(../../public/images/fundo_rodape.jpg);
+	height:85px; /** h-20 (80px) **/
+	text-align:center; /** text-center **/
+}
+/* -----------------------------------------------------------------------------
+HEADER LISTAGEM
+----------------------------------------------------------------------------- */
+.barra{
+    background-image: linear-gradient(#e8f7ec, #a8e1b6);
+}
+.header_link_list {
+	@apply flex bg-[#ff0000] items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 
+	bg-white border rounded-lg gap-x-2 sm:w-auto hover:bg-gray-100 ;
+}
+.header_link_cadastra {
+	@apply flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white 
+	border rounded-lg gap-x-2 sm:w-auto hover:bg-gray-100;
+}
+.header_listagem_pesquisa {
+	@apply block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 
+	focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40;
+}
+/* -----------------------------------------------------------------------------
+TOTAL CADASTRADO
+----------------------------------------------------------------------------- */
+.total_cadastrado {
+	background-color: #000000; /** bg-[#000000] **/
+	font-size: 14px; /** text-xs **/
+	color: #ffffff; /** text-black || text-[#000000] **/
+	padding: 6px 15px 6px 15px; /** p- **/
+}
+/* -----------------------------------------------------------------------------
+VOLTAR (LINK)
+----------------------------------------------------------------------------- */
+.voltar:link, .voltar:visited {
+	color:#037E45; /** text-black || text-[#000000] **/
+	font-weight:normal; /** font-normal **/
+	text-decoration:none; /** no-underline **/
+}
+.voltar:hover {
+	color:#FFFFFF; /** text-black || text-[#000000] **/
+	font-weight:normal; /** font-normal **/
+	text-decoration:none; /** no-underline **/
+}
+/* -----------------------------------------------------------------------------
+TABELAS
+----------------------------------------------------------------------------- */
+.tabela_show {
+    background-color: transparent; /** bg-transparent **/
+    width: 50%; /** w-1/2 **/
+	margin: 0 auto; /** m-auto **/
+	border-collapse: separate; /** border-separate **/
+	border-spacing: 3px; /** border-spacing-2 **/
+}
+
+.tabela_show tr{
+	padding:3px; /** p- **/
+}
+
+.tabela_show td{
+	padding:3px; /** p- **/
+}
+.alert_erro{
+	background-color: #F08080; /** bg-[#000000] **/
+	border: 1px #037E45 solid; /**  border-2 border-[#ff0000] **/
+	padding: 5px; /** p- **/
+}
+/* -----------------------------------------------------------------------------
+COLUNA CINZA
+----------------------------------------------------------------------------- */
+.tabela_show tbody td:first-child {
+    width: 50%; /** w-1/2 **/
+	text-align: right; /** text-right **/
+	background-color: #F0F0F0; /** bg-[#000000] **/
+	border: 1px solid; /**  border-2 border-[#ff0000] **/
+    min-width: 100px; /** min-w-2 **/
+}
+/* -----------------------------------------------------------------------------
+COLUNA VERDE
+----------------------------------------------------------------------------- */
+.tabela_show tbody td:first-child + td {
+	background-color: #B7E8C5; /** bg-[#000000] **/
+	text-align: left; /** text-left **/
+	border: 1px solid; /**  border-2 border-[#ff0000] **/
+	min-width: 100px; /** min-w-2 **/
+	padding: 3px; /** p- **/
+}
+/* -----------------------------------------------------------------------------
+CONTENT (LISTAGEM) DIVS / TABELA
+----------------------------------------------------------------------------- */
+.content_div01 {
+	@apply flex flex-col mt-2 my-4;
+}
+.content_div02 {
+	@apply -mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8;
+}
+.content_div03 {
+	@apply inline-block min-w-full py-2 align-middle md:px-6 lg:px-8;
+}
+.content_div04 {
+	@apply overflow-hidden border border-gray-200 md:rounded-lg;
+}
+.content_table {
+	@apply min-w-full divide-y divide-gray-200;
+}
+.content_thead {
+	@apply bg-[#797979] text-[#FFFFFF];
+}
+.content_cabecalho {
+	@apply py-3.5 px-4 text-sm font-normal text-left;
+}
+.content_cabecalho.acoes_cabecalho {
+	@apply text-center py-3.5 px-4;
+}
+.content_tbody {
+	@apply bg-white divide-y divide-gray-200;
+}
+.content_tbody_tr {
+	/** FAZ O HOVER DA LINHA E ZEBRA A LISTAGEM **/
+	@apply hover:bg-green-100 odd:bg-white even:bg-gray-100;
+}
+.content_tbody_coluna {
+	@apply px-4 py-2 text-sm font-medium whitespace-nowrap;
+}
+.content_coluna_acoes {
+	@apply flex px-4 py-2 text-sm justify-center;
+}
+/* -----------------------------------------------------------------------------
+X-MODAL
+----------------------------------------------------------------------------- */
+.xmodal_div01 {
+	@apply bg-[#006400] text-[#ff0000] text-xl p-4;
+}
+.xmodal_div02 {
+	@apply text-lg p-3  max-h-96 overflow-y-auto;
+}
+.xmodal_div_fechar {
+	@apply bg-[#cccccc] text-center p-4;
+}
+.xmodal_div_deletar {
+	@apply bg-[#cccccc] flex flex-row justify-between p-2;
+}
+/* -----------------------------------------------------------------------------
+X-MODAL EXIBE TEXTO
+----------------------------------------------------------------------------- */
+.modal_exibe_texto:link, .modal_exibe_texto:link:visited {
+	background-color: transparent; /** bg-[#000000] **/
+	color:#000000; /** text-black || text-[#000000] **/
+    border: 1px solid hsl(0, 0%, 0%); /**  border-2 border-[#ff0000] **/
+	border-radius: 20px;  /** rounded-2xl (16px) **/
+	font-weight:normal; /** font-normal **/
+	text-decoration:none; /** no-underline **/
+    padding: 3px; /** p- **/
+}
+.modal_exibe_texto:hover {
+	background-color: #000000; /** bg-[#000000] **/
+	color:#fff; /** text-black || text-[#000000] **/
+	border: 1px solid #000; /**  border-2 border-[#ff0000] **/
+	border-radius: 20px; /** rounded-2xl (16px) **/
+	font-weight:normal; /** font-normal **/
+	text-decoration:none; /** no-underline **/
+}
+/* -----------------------------------------------------------------------------
+AÇÕES (LINK)
+----------------------------------------------------------------------------- */
+.acoes:link, .acoes:visited {
+	color:#000000; /** text-black || text-[#000000] **/
+	font-weight:normal; /** font-normal **/
+    border: 1px solid #ccc; /**  border-2 border-[#ff0000] **/
+	text-decoration:none; /** no-underline **/
+    padding: 3px; /** p- **/
+}
+.acoes:hover {
+    background-color: #eaeaea; /** bg-[#000000] **/
+	color:#037E45; /** text-black || text-[#000000] **/
+	font-weight:normal; /** font-normal **/
+	text-decoration:none; /** no-underline **/
+}
+/* -----------------------------------------------------------------------------
+AÇÕES DELETAR
+----------------------------------------------------------------------------- */
+.acoes_deletar:link, .acoes_deletar:visited {
+	color:#000000; /** text-black || text-[#000000] **/
+	font-weight:normal; /** font-normal **/
+    border: 1px solid #ccc; /**  border-2 border-[#ff0000] **/
+	text-decoration:none; /** no-underline **/
+    padding: 3px; /** p- **/
+}
+.acoes_deletar:hover {
+    background-color: #F08080; /** bg-[#000000] **/
+	color:#000000; /** text-black || text-[#000000] **/
+	font-weight:normal; /** font-normal **/
+	text-decoration:none; /** no-underline **/
+}
+/* -----------------------------------------------------------------------------
+BOTÃO MODAL GERAL (FECHAR & DELETAR)
+----------------------------------------------------------------------------- */
+.botaoModal:link, .botaoModal:link:visited {
+	background-image: linear-gradient(#e8f7ec, #a8e1b6);
+	color:#000000; /** text-black || text-[#000000] **/
+    border: 1px solid #000; /**  border-2 border-[#ff0000] **/
+	border-radius: 20px; /** rounded-2xl (16px) **/
+	font-weight:normal; /** font-normal **/
+	text-decoration:none; /** no-underline **/
+    padding: 5px 10px 5px 5px; /** p- **/
+}
+.botaoModal:hover {
+	background-color: #000000; /** bg-[#000000] **/
+	color:#037E45; /** text-black || text-[#000000] **/
+	border: 1px solid #000; /**  border-2 border-[#ff0000] **/
+	border-radius: 20px; /** rounded-2xl (16px) **/
+	font-weight:normal; /** font-normal **/
+	text-decoration:none; /** no-underline **/
+}
+/* -----------------------------------------------------------------------------
+ENVIAR FORM (BOTÃO)
+----------------------------------------------------------------------------- */
+.enviarForm, .enviarForm:visited {
+	width: 100px; /** w-full **/
+	background-color: #037E45; /** bg-[#000000] **/
+	color:#ffffff; /** text-black || text-[#000000] **/
+	font-weight:normal; /** font-normal **/
+	border-radius: 20px; /** rounded-2xl (16px) **/
+	text-decoration:none; /** no-underline **/
+}
+.enviarForm:hover {
+	color:#ffffff; /** text-black || text-[#000000] **/
+	font-weight:bold; /** font-bold **/
+	border: 1px #2F4F4F solid; /**  border-2 border-[#ff0000] **/
+	text-decoration:none; /** no-underline **/
+}
+/* -----------------------------------------------------------------------------
+SECTION BARRA (SHOW)
+----------------------------------------------------------------------------- */
+.div_section_barra {
+	@apply flex barra justify-between p-4;
+}
+/* -----------------------------------------------------------------------------
+CONTENT SHOW (EXIBE CONTEÚDO)
+----------------------------------------------------------------------------- */
+.div_section_barra {
+	@apply flex barra justify-between p-4;
+}
+.content_show_label {
+	@apply p-3;
+}
+.content_show_input {
+	@apply appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 
+	leading-tight focus:outline-none focus:bg-white focus:border-gray-500;
+}
+/* -----------------------------------------------------------------------------
+FORM CREATE / EDIT
+----------------------------------------------------------------------------- */
+.form_create_edit_label {
+	@apply p-3;
+}
+.form_create_edit_input {
+	@apply appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 
+	leading-tight focus:outline-none focus:bg-white focus:border-gray-500;
+}
+.form_create_edit_select {
+	@apply appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500;
+}
+.form_create_edit_textarea {
+	@apply appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500;
+}
+
+
+
+
+
+
+
+
+
+

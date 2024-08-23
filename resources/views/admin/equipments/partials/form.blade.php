@@ -1,5 +1,5 @@
 {{-- --------------------------------------------------------------------------------------------------------- --}}
-{{-- EQUIPAMENTO FORM  --}}
+{{-- EQUIPAMENTO FORM CREATE / EDIT --}}
 {{-- --------------------------------------------------------------------------------------------------------- --}}
 
 {{-- <x-alert/> --}}
@@ -9,9 +9,9 @@
     {{-- ------------------------------------------------------------------------------------- --}}
     @csrf()
     <div>
-        <label class="px-2" for="descricao">Descrição*:</label>
+        <label class="form_create_edit_label" for="descricao">Descrição*:</label>
         <input type="text" placeholder="Remetente" name="sender" value="{{ $equipment->description ?? old('description') }}"
-        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        class="form_create_edit_input">
         @error('description')
             <div class="text-red-500">{{ $message }}</div>
         @enderror
