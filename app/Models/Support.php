@@ -25,7 +25,7 @@ class Support extends Model
         'body',
     ];
 
-    public function equipment()
+    public function equipment(): belongsTo
     {
         return $this->belongsTo(Equipment::class);
     }

@@ -1,6 +1,6 @@
 <?php
 // ----------------------------------------------------------------------------------------------------------
-// DÚVIDAS
+// OS
 // ----------------------------------------------------------------------------------------------------------
 namespace App\Http\Controllers\Admin;
 
@@ -20,7 +20,7 @@ class SupportController extends Controller
 // ----------------------------------------------------------------------
 // ##### FUNÇÃO 'INDEX' MOSTRA OS DADOS (INDEX.BLADE.PHP INCLUDE -> CONTENT.BLADE.PHP)
 // ----------------------------------------------------------------------
-    public function index(Request $request)
+    public function index(Request $request )
     {
         // dd($request);
         $filter = $request->get('filter', '');
@@ -33,19 +33,18 @@ class SupportController extends Controller
             // $filter = normalize($filter);
             // $filter = lower($filter);
             // dd($filter);
-            $supports = DB::table('laravel.supports')
-                ->select('e.description', 'supports.*')
-                ->join('laravel.equipments AS e', 'supports.equipment_id', '=', 'e.id')
-                ->orWhere(lower('sender'), 'like', lower("%{$filter}%"))
-                ->orwhere(lower('subject'), 'like', lower("%{$filter}%"))
-                ->orWhere(lower('body'), 'like', lower("%{$filter}%"))
-                ->orWhere(lower('e.description'), 'like', lower("%{$filter}%"))
+            $supports = DB::table('supports') 
+                ->select('equipments.description', 'supports.*') 
+                ->where(lower('sender'), 'like', lower("%{$filter}%")) 
+                ->orwhere(lower('subject'), 'like', lower("%{$filter}%")) 
+                ->orWhere(lower('body'), 'like', lower("%{$filter}%")) 
+                ->orWhere(lower('equipments.description'), 'like', lower("%{$filter}%")) 
                 ->orderBy('created_at','desc');
         }
         else{
-            $supports = DB::table('laravel.supports')
-                ->select('e.description', 'supports.*')
-                ->join('laravel.equipments AS e', 'supports.equipment_id', '=', 'e.id')
+            $supports = DB::table('supports') 
+                ->select('equipments.description', 'supports.*') 
+                ->leftJoin('equipments', 'supports.equipment_id', '=', 'equipments.id') 
                 ->orderBy('created_at','desc');
             // --------------------------------------------------------------
             // dd($supports);

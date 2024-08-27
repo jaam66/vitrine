@@ -3,7 +3,7 @@
 {{-- --------------------------------------------------------------------------------------------------------- --}}
 @extends('admin.layouts.app')
 
-@section('title', 'Detalhes do Suporte')
+@section('title', 'Suporte')
 
 @section('barra')
     {{-- <h1>Detalhes do Suporte {{ $support->id }}</h1> --}}

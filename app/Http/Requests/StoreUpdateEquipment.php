@@ -11,7 +11,7 @@ class StoreUpdateEquipment extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,10 @@ class StoreUpdateEquipment extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
+        $rules = [
+            'description' => 'required|min:10|max:255',
         ];
+
+        return $rules;
     }
 }
