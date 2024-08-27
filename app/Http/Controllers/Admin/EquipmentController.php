@@ -11,24 +11,12 @@ use Illuminate\Support\Facades\DB;
 
 class EquipmentController extends Controller
 {
-    public static function buscaSuporte($id_equipamento){
-        // dd($id_equipamento);
-        $support = DB::table('supports')->where('equipment_id', $id_equipamento)->value('equipment_id');
-        if($support > 0){
-            return true;
-        }
-        return false;
-    }
 // ----------------------------------------------------------------------
 // ##### FUNÇÃO 'INDEX' MOSTRA OS DADOS (INDEX.BLADE.PHP INCLUDE -> CONTENT.BLADE.PHP)
 // ----------------------------------------------------------------------
     public function index(Request $request)
     {
         // dd($request);
-        $pega = $this->buscaSuporte(3);
-        // if($pega === true){
-        //     dd($pega);
-        // }
         $filter = $request->get('filter', '');
         if($filter){
             $equipments = DB::table('equipments')
@@ -37,21 +25,18 @@ class EquipmentController extends Controller
                 ->orderBy('description','desc');
         }
         else{
-            $equipments = DB::table('laravel.equipments')
+            $equipments = DB::table('equipments')
                 ->select('equipments.*')
                 ->orderBy('description','desc');
             // --------------------------------------------------------------
             // dd($equipments);
             // --------------------------------------------------------------
         }
-        $supports = Support::all();
-        // dd($suport);
-        // $equipments['suport']
         $equipments = $equipments->paginate(4);
         // ------------------------------------------------------------------
         // dd($equipments);
         // ------------------------------------------------------------------
-        return view('admin/equipments/index', compact('equipments','supports'));
+        return view('admin/equipments/index', compact('equipments'));
     }
 // ----------------------------------------------------------------------
 // ##### FUNÇÃO 'SHOW' MOSTRA OS DADOS (SHOW.BLADE.PHP)

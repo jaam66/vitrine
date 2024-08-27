@@ -1,19 +1,19 @@
 {{-- --------------------------------------------------------------------------------------------------------- --}}
-{{--EQUIPAMENTOS HEADER (CABEÇALHO)  --}}
+{{--ORÇAMENTO HEADER (CABEÇALHO)  --}}
 {{-- --------------------------------------------------------------------------------------------------------- --}}
 <div class="barra flex justify-between p-3">
     <div class="flex">
         <div class="flex items-center gap-x-3">
-            <a href="{{ route('equipamento.index') }}" class="header_link_list">
-                <span>Equipamentos</span>
+            <a href="{{ route('orcamento.index') }}" class="header_link_list">
+                <span>Orçamento</span>
                 <i class="fa-solid fa-list"></i>
             </a>
-            <span class="total_cadastrado rounded-full">{{ $equipments->total() }} Equipamentos</span>
+            <span class="total_cadastrado rounded-full">{{ $budgets->total() }} Orçamentos</span>
         </div>
         &nbsp;&nbsp;&nbsp;
         <div class="flex">
             <a href="{{ route('equipamento.create') }}" class="header_link_cadastra">
-                <span>Novo Equipamento</span>
+                <span>Novo Orcamento</span>
                 <i class="fa-regular fa-square-plus"></i>
             </a>
         </div>

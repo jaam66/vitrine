@@ -1,19 +1,19 @@
 {{-- --------------------------------------------------------------------------------------------------------- --}}
-{{-- EQUIPAMENTO INDEX (LISTAGEM)  --}}
+{{-- ORÇAMENTO INDEX (LISTAGEM)  --}}
 {{-- --------------------------------------------------------------------------------------------------------- --}}
 @extends('admin.layouts.app')
 
 @section('title', 'Suporte')
 
 @section('barra')
-    @include('admin.equipments.partials.header')
+    @include('admin.budgets.partials.header')
 @endsection
 
 {{-- diretiva section --}}
 @section('content')
 {{-- ------------------------------------------------------------------------------------- --}}
-    @include('admin.equipments.partials.content')
+    @include('admin.budgets.partials.content')
     <br>
-    {{ $equipments->links() }}
+    {{ $budgets->links() }}
 {{-- ------------------------------------------------------------------------------------- --}}
 @endsection

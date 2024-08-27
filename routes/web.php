@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\{EquipmentController};
 use App\Http\Controllers\Admin\{SupportController};
+use App\Http\Controllers\Admin\{EquipmentController};
+use App\Http\Controllers\Admin\{BudgetController};
 use App\Http\Controllers\Admin\{UserController};
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -31,22 +32,18 @@ Route::get('/', function () {
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
-
-
+// -----------------------------------------------------------------------------------------
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// -----------------------------------------------------------------------------------------
 
-
-// -----------------------------------------------------------------------------------------
     Route::get('/index', function () {
         return view('index');
     })->name('index');
 // -----------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------
- // SUPORTE (OS)
+// SUPORTE (OS)
 // -----------------------------------------------------------------------------------------
     Route::get('/suporte', [SupportController::class, 'index'])->name('suporte.index');
 
@@ -63,7 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/suporte/{id}', [SupportController::class, 'destroy'])->name('suporte.destroy');
 
 // -----------------------------------------------------------------------------------------
- // EQUIPAMENTO
+// EQUIPAMENTO
 // -----------------------------------------------------------------------------------------
     Route::get('/equipamento', [EquipmentController::class, 'index'])->name('equipamento.index');
 
@@ -82,7 +79,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/equipamento/{id}', [EquipmentController::class, 'destroy'])->name('equipamento.destroy');
 
 // -----------------------------------------------------------------------------------------
- // USUARIO
+// ORÇAMENTO
+// -----------------------------------------------------------------------------------------
+    Route::get('/orcamento', [BudgetController::class, 'index'])->name('orcamento.index');
+
+// -----------------------------------------------------------------------------------------
+// USUARIO
 // -----------------------------------------------------------------------------------------
     Route::get('/usuario', [UserController::class, 'index'])->name('usuario.index');
 
